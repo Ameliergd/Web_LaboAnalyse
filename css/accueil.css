@@ -1,0 +1,21 @@
+
+div.hero-body {
+    background-image:url(http://localhost:8888/Web_LaboAnalyse/images/analyses-saint-denis.jpg);
+    height : 400px;
+    opacity: 0.7;
+    
+}
+
+h1.title {
+    color: White;
+    size : 18px;
+    font-weight: bold;
+    padding-top: 100px;
+    padding-right: 600px;
+}
+
+h2.subtitle {
+    color : white;
+    font-weight: bold;
+    padding-right: 600px;
+}
