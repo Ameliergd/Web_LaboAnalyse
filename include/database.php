@@ -1,11 +1,11 @@
 <?php
 session_start();
 /* DATABASE CONFIGURATION */
-define('DB_SERVER', 'mysql');
+define('DB_SERVER', 'mysql'); // remplacer 'mysql' par 'localhost'
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', 'root');
 define('DB_DATABASE', 'Laboratoire_Analyse');
-define("BASE_URL", "http://localhost/Web_LaboAnalyse/");
+define("BASE_URL", "http://localhost/Web_LaboAnalyse/"); // Url du projet
 
 
 
@@ -26,4 +26,5 @@ echo 'Connection failed: ' . $e->getMessage();
 }
 
 }
+
 ?>
