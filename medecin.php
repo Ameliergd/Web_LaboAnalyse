@@ -13,7 +13,7 @@ if (!empty($_POST['loginSubmit'])) {
     $usernameEmail=$_POST['usernameEmail'];
     $password=$_POST['password'];
     if (strlen(trim($usernameEmail))>1 && strlen(trim($password))>1) {
-        $res=$userClass->medecinLogin($usernameEmail, $password);
+        $res=$userClass->medecinLogin($usernameEmail, $password); // Fonction de vérification des identifiants
         if ($res) {
             $url=BASE_URL.'patients.php';
             header("Location: $url"); // Redirection vers la page patients.php

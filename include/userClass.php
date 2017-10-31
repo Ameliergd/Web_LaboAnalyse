@@ -8,7 +8,6 @@ class userClass
     {
         try {
             $db = getDB();
-            $id = "";
             // $hash_password= hash('sha256', $password); // utiliser hash_password si les mdp sont chiffrés
             $stmt = $db->prepare("SELECT idMedecin, email, password FROM medecin WHERE email=:usernameEmail AND password=:password");
             $stmt->bindParam(":usernameEmail", $usernameEmail, PDO::PARAM_STR) ;
@@ -18,7 +17,7 @@ class userClass
             $data=$stmt->fetch(PDO::FETCH_OBJ);
             $db = null;
             if ($count) {
-                $_SESSION['uid']=$data->id; // Stockage de l'id dans une variable de session
+                $_SESSION['uid']=$data->idMedecin; // Stockage de l'id dans une variable de session
                 return true;
             } else {
                 return false;
@@ -26,5 +25,9 @@ class userClass
         } catch (PDOException $e) {
             echo '{"error":{"text":'. $e->getMessage() .'}}';
         }
+    }
+    
+    public function userLogin($username, $password) {
+        
     }
 }

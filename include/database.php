@@ -1,11 +1,11 @@
 <?php
 session_start();
 /* DATABASE CONFIGURATION */
-define('DB_SERVER', 'mysql'); // remplacer 'mysql' par 'localhost'
+define('DB_SERVER', 'localhost'); // remplacer 'mysql' par 'localhost'
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', 'root');
 define('DB_DATABASE', 'Laboratoire_Analyse');
-define("BASE_URL", "http://localhost/Web_LaboAnalyse/"); // Url du projet
+define("BASE_URL", "http://localhost:8888/Web_LaboAnalyse/"); // Url du projet
 
 
 
