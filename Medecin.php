@@ -1,30 +1,22 @@
 <?php
-ini_set('display_errors', 'on');
-error_reporting(E_ALL);
-
+// ini_set('display_errors', 'on');
+// error_reporting(E_ALL);
 
 include('include/database.php');
 include('include/userClass.php');
 
-$message = "No form";
-
-
 $userClass = new userClass();
 
-$errorMsgReg='';
-$errorMsgLogin='';
+$errorMsgLogin='<br/>';
 /* Login Form */
 if (!empty($_POST['loginSubmit'])) {
     $usernameEmail=$_POST['usernameEmail'];
     $password=$_POST['password'];
-    echo($usernameEmail);
-    echo($password);
     if (strlen(trim($usernameEmail))>1 && strlen(trim($password))>1) {
-        $res=$userClass->userLogin($usernameEmail, $password);
+        $res=$userClass->medecinLogin($usernameEmail, $password);
         if ($res) {
-            $message = "Welcome";
             $url=BASE_URL.'patients.php';
-            header("Location: $url"); // Page redirecting to home.php
+            header("Location: $url"); // Redirection vers la page patients.php
         } else {
             $errorMsgLogin='<p class="tag is-large is-danger">Please check login details.</p>';
         }
