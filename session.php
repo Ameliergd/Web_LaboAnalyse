@@ -7,7 +7,7 @@ $userClass = new userClass();
 }
 if(empty($session_uid))
 {
-$url=BASE_URL.'index.php';
+$url=BASE_URL.'index.html';
 header("Location: $url");
 }
 ?>
