@@ -1,10 +1,31 @@
 <?php
-include('database.php');
-session_start();
+include('include/database.php');
 
-$email = htmlspecialchars($_POST['email']);
-$password = htmlspecialchars($_POST['password']);
 
+$output = "";
+
+$db = getDB();
+$query = $db->prepare("SELECT patient.idPatient, patient.nom, patient.prenom FROM patient INNER JOIN prelevement p ON p.`idPatient`=patient.idPatient INNER JOIN medecin m ON p.`idMedecin`=m.idMedecin WHERE m.idMedecin=:idMedecin ORDER BY nom;");
+$query->bindParam("idMedecin", $_SESSION['uid'], PDO::PARAM_INT);
+$query->execute();
+$count=$query->rowCount();
+
+while($row = $query->fetch())
+{
+  $output = $output. "
+  <tr>
+    <td>".$row['idPatient']."</td>
+    <td>".$row['nom']."</td>
+    <td>".$row['prenom']."</td>
+    <td>27-09-2017</td>
+    <td><a href='#'>+ d'infos<span class='icon'>
+                <i class='fa fa-info-circle' aria-hidden='true'></i>
+                </span></a></td>
+    <td><a class='icon'>
+                    <i class='fa fa-pencil' aria-hidden='true'></i>
+                    </a></td>
+  </tr>";
+}
 
 
 ?>
@@ -31,7 +52,7 @@ $password = htmlspecialchars($_POST['password']);
         <nav class="navbar">
           <div class="container">
             <div class="navbar-brand">
-              <p class="navbar-item" href="#">
+              <p class="navbar-item">
                 <img src="images/logo.png" alt="Logo">
               </p>
               <div class="navbar-item">
@@ -45,7 +66,7 @@ $password = htmlspecialchars($_POST['password']);
             </span>
             <div class="navbar-end">
               <div class="navbar-item">
-                <a class="button is-danger" href="Medecin.php">
+                <a class="button is-danger" href="medecin.php">
                                     Logout
                                 </a>
               </div>
@@ -114,33 +135,8 @@ $password = htmlspecialchars($_POST['password']);
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>0001</td>
-            <td>REGAUD</td>
-            <td>Amélie</td>
-            <td>27-09-2017</td>
-            <td><a href="#">+ d'infos<span class="icon">
-                        <i class="fa fa-info-circle" aria-hidden="true"></i>
-                        </span></a></td>
-            <td><a class="icon">
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                            </a></td>
-          </tr>
-          <tr>
-            <td>0002</td>
-            <td>LOURDELLE</td>
-            <td>Pierre</td>
-            <td>13-10-2017</td>
-            <td><a href="infos.php">+ d'infos<span class="icon">
-                        <i class="fa fa-info-circle" aria-hidden="true"></i>
-                        </span></a></td>
-            <td><a class="icon">
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                            </a></td>
-          </tr>
-          <?php
-                echo($_SESSION['email']);
-                ?>
+
+          <?php echo($output); ?>
 
         </tbody>
 

@@ -26,8 +26,9 @@ class userClass
             echo '{"error":{"text":'. $e->getMessage() .'}}';
         }
     }
-    
+
+    /* User Login */
     public function userLogin($username, $password) {
-        
+
     }
 }
