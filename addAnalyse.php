@@ -16,7 +16,7 @@
 
 <body>
 <div>
-    <section class="hero is-info">
+    <section class="hero is-info is-bold">
         <div class="hero-body">
             <div class="container has-text-centered">
                 <h1 class="title"> Ajouter une Analyse</h1>
@@ -125,13 +125,13 @@
                     </div>
 
                     <div class="field">
-                        <div class="field-label">
+                        <div class="label">
                             <label class="label">Commentaire</label>
                         </div>
                         <div class="field-body">
                             <div class="field">
                                 <p class="control is-expanded">
-                                    <textarea class="textarea is-info" type="text" placeholder="Commentaire"></textarea>
+                                    <textarea class="textarea is-info" type="text" placeholder="Commentaire" rows="8"></textarea>
                                 </p>
                             </div>
                         </div>
