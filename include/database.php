@@ -27,4 +27,16 @@ echo 'Connection failed: ' . $e->getMessage();
 
 }
 
+function GenderSymbol($gender)
+{
+  if($gender == 'M') {
+      $output = '<span class="icon" style="color:#46d2f4;"><i class="fa fa-mars" aria-hidden="true"></i></span>';
+  }
+  else
+  {
+    $output = '<span class="icon" style="color:#ef5fe8;"><i class="fa fa-venus" aria-hidden="true"></i><span>';
+  }
+  return $output;
+}
+
 ?>

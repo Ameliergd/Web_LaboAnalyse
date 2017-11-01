@@ -1,21 +1,14 @@
 <?php
 include('include/database.php');
 
-
-function GenderSymbol($gender)
-{
-  if($gender == 'M') {
-      $output = '<span class="icon" style="color:#46d2f4;"><i class="fa fa-mars" aria-hidden="true"></i></span>';
-  }
-  else
-  {
-    $output = '<span class="icon" style="color:#ef5fe8;"><i class="fa fa-venus" aria-hidden="true"></i><span>';
-  }
-  return $output;
+if (!$_SESSION['uid']){
+    header("Location:medecin.php");
+    die();
 }
 
+
 $db = getDB();
-$userId = 3;
+$userId = htmlspecialchars($_GET['id']);
 
 /* Infos personnelles du patient */
 $infos = $db->prepare("SELECT nom, prenom, sexe, age, email, num_secu FROM patient WHERE idPatient=:userId;");
@@ -77,9 +70,9 @@ while($row = $recap->fetch())
 
   <body>
 
-    <div class="container">
+    <div>
       <div class="hero-head">
-        <nav class="navbar is-info">
+        <nav class="navbar">
           <div class="container">
             <div class="navbar-brand">
               <p class="navbar-item" href="#">
