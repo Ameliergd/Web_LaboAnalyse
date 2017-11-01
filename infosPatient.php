@@ -65,13 +65,10 @@ while($row = $recap->fetch())
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <!-- Bulma Version 0.6.0 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/accueil.css">
   </head>
 
   <body>
 
-    <div>
-      <div class="hero-head">
         <nav class="navbar">
           <div class="container">
             <div class="navbar-brand">
@@ -79,7 +76,7 @@ while($row = $recap->fetch())
                 <img src="images/logo.png" alt="Logo">
               </p>
               <div class="navbar-item">
-                <p>Expace Médecin</p>
+                <p>Infos</p>
               </div>
             </div>
             <span class="navbar-burger burger" data-target="navbarMenu">
@@ -96,9 +93,12 @@ while($row = $recap->fetch())
             </div>
           </div>
         </nav>
-      </div>
-    </div>
-
+<div class="hero is-info is-bold">
+  <div class="hero-body container">
+    <h1 class="title">Fiche patient</h1>
+    <h2 class="subtitle"><?php echo($nom); ?></h2>
+  </div>
+</div>
     <div class="section">
       <div class="columns">
         <div class="column is-3 card is-paddingless">
