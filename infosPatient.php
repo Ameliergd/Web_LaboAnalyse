@@ -1,10 +1,10 @@
 <?php
 include('include/database.php');
 
-if (!$_SESSION['uid']){
-    header("Location:medecin.php");
-    die();
-}
+// if (!$_SESSION['uid']){
+//     header("Location:medecin.php");
+//     die();
+// }
 
 
 $db = getDB();
