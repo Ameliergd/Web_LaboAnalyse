@@ -79,7 +79,7 @@ while($row = $recap->fetch())
 
     <div class="container">
       <div class="hero-head">
-        <nav class="navbar">
+        <nav class="navbar is-info">
           <div class="container">
             <div class="navbar-brand">
               <p class="navbar-item" href="#">

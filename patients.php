@@ -42,13 +42,11 @@ while($row = $query->fetch())
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <!-- Bulma Version 0.6.0 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/accueil.css">
   </head>
 
   <body>
 
-    <div class="container">
-      <div class="hero-head">
+
         <nav class="navbar">
           <div class="container">
             <div class="navbar-brand">
@@ -58,12 +56,7 @@ while($row = $query->fetch())
               <div class="navbar-item">
                 <p>Expace Médecin</p>
               </div>
-              <div class="navbar-item">
-                <p>
-                  Test
-                  <?php echo($_SESSION['nomMedecin']); ?>
-                </p>
-              </div>
+
             </div>
             <span class="navbar-burger burger" data-target="navbarMenu">
                             <span></span>
@@ -80,9 +73,16 @@ while($row = $query->fetch())
             </div>
           </div>
         </nav>
-      </div>
-    </div>
-    <div class="container">
+        <div class="hero is-bold is-info">
+          <div class="hero-body">
+            <div class="container">
+              <h1 class="title">
+                Bienvenue Dr. <?php echo($_SESSION['nomMedecin']); ?>
+              </h1>
+            </div>
+          </div>
+        </div>
+    <div class="section container">
       <div class="columns">
         <div class="column is-5 is-offset-one-quarter">
           <div class="level">
