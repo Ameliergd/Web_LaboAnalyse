@@ -7,7 +7,6 @@
     <title>Informations</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
-    <link rel="stylesheet" href="css/informations.css">
 
 </head>
 
@@ -17,43 +16,48 @@
             <nav class="navbar">
                 <div class="container">
                     <div class="navbar-brand">
-                        <a class="navbar-item" href="../">
-              <img src="http://bulma.io/images/bulma-type-white.png" alt="Logo">
-            </a>
-                        <span class="navbar-burger burger" data-target="navbarMenu">
-              <span></span>
-                        <span></span>
-                        <span></span>
-                        </span>
+                        <a class="navbar-item" href="#">
+                            <img src="images/logo.png" alt="Logo">
+                        </a>
                     </div>
+                    <span class="navbar-burger burger" data-target="navbarMenu">
+                            <span></span>
+                    <span></span>
+                    <span></span>
+                    </span>
+
                     <div id="navbarMenu" class="navbar-menu">
-                        <div class="navbar-end">
-                            <a class="navbar-item" href="Accueil.php">
-                ACCUEIL
-              </a>
-                            <a class="navbar-item is-active" href="Information.php">
-                INFORMATIONS
-              </a>
-                            <a class="navbar-item">
-                ESPACE CLIENT
-              </a>
-                            <a class="navbar-item" href="Medecin.php">
-                ESPACE MEDECIN
-              </a>
-                            <span class="navbar-item">
-                <a class="button is-white is-outlined is-small" href="https://github.com/dansup/bulma-templates/blob/master/templates/hero.html">
-                  <span class="icon">
-                    <i class="fa fa-github"></i>
-                  </span>
-                            <span>View Source</span>
-                            </a>
-                            </span>
+                        <div class="navbar-item">
+                            <a class="navbar-item is-active">ACCUEIL</a>
+                            <a class="navbar-item" href="informations.html">INFORMATIONS</a>
                         </div>
                     </div>
-                </div>
-            </nav>
-        </div>
+                    <div class="navbar-end is-grouped">
 
+                        <div class="navbar-item control">
+                            <a class="button is-primary" href="connexionPatient.php" target="_blank" >
+                                <span class="icon">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </span>
+                                <span>ESPACE CLIENT</span>
+                            </a>
+                        </div>
+                        <div class="navbar-item control">
+                            <a class="button is-info" href="medecin.php" target="_blank" >
+                                <span class="icon">
+                                    <i class="fa fa-user-md" aria-hidden="true"></i>
+                                </span>
+                                <span>ESPACE MEDECIN</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+        </nav>
+        </div>
     </section>
 
     <h1 class="title">AVANT DE VENIR AU LABORATOIRE</h1>

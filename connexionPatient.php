@@ -23,7 +23,7 @@
             <p class="subtitle has-text-grey"> Vos Resultats en ligne .</p>
             <div class="box">
               <figure class="avatar">
-                <img src="images/generalistes.png">
+                <img src="images/user.png">
               </figure>
               <form method="post" action="" name="login">
                 <div class="field">
