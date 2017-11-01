@@ -58,12 +58,19 @@ while($row = $query->fetch())
               <div class="navbar-item">
                 <p>Expace Médecin</p>
               </div>
+              <div class="navbar-item">
+                <p>
+                  Test
+                  <?php echo($_SESSION['nomMedecin']); ?>
+                </p>
+              </div>
             </div>
             <span class="navbar-burger burger" data-target="navbarMenu">
                             <span></span>
             <span></span>
             <span></span>
             </span>
+
             <div class="navbar-end">
               <div class="navbar-item">
                 <a class="button is-danger" href="medecin.php">

@@ -18,6 +18,7 @@ class userClass
             $db = null;
             if ($count) {
                 $_SESSION['uid']=$data->idMedecin; // Stockage de l'id dans une variable de session
+                $_SESSION['nomMedecin']=$data->nom;
                 return true;
             } else {
                 return false;
@@ -29,6 +30,6 @@ class userClass
 
     /* User Login */
     public function userLogin($username, $password) {
-
+          // TODO
     }
 }

@@ -1,16 +1,69 @@
 <?php
-include('database.php');
+include('include/database.php');
 
 
-session_start();
+function GenderSymbol($gender)
+{
+  if($gender == 'M') {
+      $output = '<span class="icon" style="color:#46d2f4;"><i class="fa fa-mars" aria-hidden="true"></i></span>';
+  }
+  else
+  {
+    $output = '<span class="icon" style="color:#ef5fe8;"><i class="fa fa-venus" aria-hidden="true"></i><span>';
+  }
+  return $output;
+}
+
+$db = getDB();
+$userId = 3;
+
+/* Infos personnelles du patient */
+$infos = $db->prepare("SELECT nom, prenom, sexe, age, email, num_secu FROM patient WHERE idPatient=:userId;");
+$infos->bindParam(":userId", $userId, PDO::PARAM_INT);
+$infos->execute();
+$count=$infos->rowCount();
+$data=$infos->fetch(PDO::FETCH_OBJ);
+$db = null;
+if ($count) {
+    $nom= implode(' ',array($data->nom, $data->prenom));
+    $email= $data->email;
+    $sexe= GenderSymbol($data->sexe);
+    $age= $data->age;
+    $numSecu= $data->num_secu;
+}
+
+/* Tableau des prélèvements et analyses */
+$tab = "";
+
+$db = getDB();
+$recap = $db->prepare("SELECT `datePrel`, `typePrel`, m.nom nomMedecin, a.nomAnalyse analyse, a.resultat resultat FROM prelevement pr INNER JOIN patient pa ON pr.`idPatient`=pa.idPatient INNER JOIN medecin m ON pr.`idMedecin`=m.idMedecin INNER JOIN analyse a ON pr.`idPrelevement`=a.idPrelevement WHERE pa.`idPatient`=:idPatient;");
+$recap->bindParam(":idPatient", $userId, PDO::PARAM_INT);
+$recap->execute();
+while($row = $recap->fetch())
+{
+  $tab = $tab . "
+
+  <tr>
+      <td>". $row['datePrel'] ."</td>
+      <td>". strtoupper($row['nomMedecin']) . "</td>
+      <td>" . $row['typePrel'] . "</td>
+      <td>" . $row['analyse'] . "</td>
+      <td>" . $row['resultat'] . "</td>
+      <td><a class='icon'>
+          <i class='fa fa-info-circle' aria-hidden='true'></i>
+      </a></td>
+  </tr>
+
+  ";
+}
 
 
 ?>
 
-<!DOCTYPE html>
-<html>
+  <!DOCTYPE html>
+  <html>
 
-<head>
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,105 +72,94 @@ session_start();
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <!-- Bulma Version 0.6.0 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw=" crossorigin="anonymous" />
-    <link rel="stylesheet" type="text/css" href="../css/hero.css">
     <link rel="stylesheet" href="css/accueil.css">
-</head>
+  </head>
 
-<body>
+  <body>
 
     <div class="container">
-        <div class="hero-head">
-            <nav class="navbar">
-                <div class="container">
-                    <div class="navbar-brand">
-                        <p class="navbar-item" href="#">
-                            <img src="images/logo.png" alt="Logo">
-                        </p>
-                        <div class="navbar-item">
-                            <p>Expace Médecin</p>
-                        </div>
-                    </div>
-                    <span class="navbar-burger burger" data-target="navbarMenu">
+      <div class="hero-head">
+        <nav class="navbar">
+          <div class="container">
+            <div class="navbar-brand">
+              <p class="navbar-item" href="#">
+                <img src="images/logo.png" alt="Logo">
+              </p>
+              <div class="navbar-item">
+                <p>Expace Médecin</p>
+              </div>
+            </div>
+            <span class="navbar-burger burger" data-target="navbarMenu">
                             <span></span>
-                    <span></span>
-                    <span></span>
-                    </span>
-                    <div class="navbar-end">
-                        <div class="navbar-item">
-                            <a class="button is-danger" href="Medecin.php">
+            <span></span>
+            <span></span>
+            </span>
+            <div class="navbar-end">
+              <div class="navbar-item">
+                <a class="button is-danger" href="Medecin.php">
                                 Logout
                             </a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
     </div>
 
     <div class="section">
-        <div class="columns">
-            <div class="column is-3 card is-paddingless">
-                <div class="card-image">
-                    <figure class="image">
-                        <img src="https://engineering.unl.edu/images/staff/Kayla_Person-small.jpg" alt="Photo de profil">
-                    </figure>
-                </div>
-                <div class="card-content">
-                    <p><strong>Andrea Fields</strong></p>
-                    <p><strong>Sexe:</strong> <span class="icon"><i class="fa fa-venus" aria-hidden="true"></i></span></p>
-                    <p><strong>Email:</strong> andrea-93@example.com</p>
-                    <p><strong>Age:</strong> 25</p>
-                    <p><strong>Num sécu: </strong>987987070917124087</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="card-footer-item"><span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i>
+      <div class="columns">
+        <div class="column is-3 card is-paddingless">
+          <div class="card-image">
+            <figure class="image">
+              <img src="images/userlogo.png" alt="Photo de profil">
+            </figure>
+          </div>
+          <div class="card-content">
+            <p><strong><?php echo($nom); ?></strong></p>
+            <p><strong>Sexe: </strong>
+              <?php echo($sexe); ?>
+            </p>
+            <p><strong>Email: </strong>
+              <?php echo($email); ?>
+            </p>
+            <p><strong>Age: </strong>
+              <?php echo($age); ?>
+            </p>
+            <p><strong>Num sécu: </strong>
+              <?php echo($numSecu); ?>
+            </p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="card-footer-item"><span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i>
 </span>Modifier</a>
-                    <a href="#" class="card-footer-item"><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>Supprimer</a>
-                </div>
-            </div>
-            <div class="column">
-                <table class="table is-hoverable is-striped is-fullwidth">
-                    <thead>
-                        <tr>
-                            <th><abbr title="Date">Date</abbr></th>
-                            <th><abbr title="medecin">Medecin</abbr></th>
-                            <th><abbr title="Type">Type Prélèvement</abbr></th>
-                            <th><abbr title="Analyse">Analyses</abbr></th>
-                            <th><abbr title="Resultat">Résultat</abbr></th>
-                            <th><abbr title="Rapport">Commentaire</abbr></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>27-05-2017</td>
-                            <td>HUCHARD</td>
-                            <td>Selles</td>
-                            <td>Cocaïne</td>
-                            <td>25mg</td>
-                            <td><a class="icon">
-                                <i class="fa fa-info-circle" aria-hidden="true"></i>
-                            </a></td>
-                        </tr>
-                        <tr>
-                            <td>12-09-2016</td>
-                            <td>LOURDELLE</td>
-                            <td>Sanguin</td>
-                            <td>Diabete</td>
-                            <td>SIDA</td>
-                            <td><a class="icon">
-                            <i class="fa fa-info-circle" aria-hidden="true"></i>
-
-                            </a></td>
-                        </tr>
-                    </tbody>
-
-                </table>
-            </div>
+            <a href="#" class="card-footer-item"><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>Supprimer</a>
+          </div>
         </div>
+        <div class="column">
+          <table class="table is-hoverable is-striped is-fullwidth">
+            <thead>
+              <tr>
+                <th><abbr title="Date">Date</abbr></th>
+                <th><abbr title="medecin">Medecin</abbr></th>
+                <th><abbr title="Type">Type Prélèvement</abbr></th>
+                <th><abbr title="Analyse">Analyses</abbr></th>
+                <th><abbr title="Resultat">Résultat</abbr></th>
+                <th><abbr title="Rapport">Commentaire</abbr></th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <?php echo($tab); ?>
+
+            </tbody>
+
+          </table>
+        </div>
+      </div>
     </div>
 
 
 
-</body>
+  </body>
 
-</html>
+  </html>
