@@ -42,6 +42,7 @@
                             <div class="field-body">
                                 <div class="field">
 
+<<<<<<< Updated upstream:addAnalyse.php
                                     <p class="control is-expended">
                                         <input class="input is-info" type="date" placeholder="Date-input" value="date">
 
@@ -69,6 +70,13 @@
 
 
                                   </div>
+=======
+                    <form methode="post" action="#">
+                        <div class="columns">
+                            <div class="field is-horizontal">
+                                <div class="field-label">
+                                    <label class="label">Date</label>
+>>>>>>> Stashed changes:ajoutAnalyse.php
                                 </div>
 
                               </div>
