@@ -1,5 +1,26 @@
 <?php
-include('database.php');
+include('include/database.php'); // Import de la configuration
+
+if (!$_SESSION['uid']){
+    header("Location:medecin.php");
+    die();
+}
+
+$db = getDB(); // Création de la connection à la base de données
+$query=$db->prepare("INSERT INTO patient (nom,prenom,sexe,age,email,password,num_secu) VALUES (?,?,?,?,?,?,?)"); // Préparation de la requête en passant par la connection définie précédemment
+
+if (!empty($_POST['adduserform']))
+    
+{
+    $nom=$_POST['nom'];
+    $prenom=$_POST['prenom'];
+    $sexe=$_POST['sexe'];
+    $age=$_POST['age'];
+    $email=$_POST['email'];
+    $password=$_POST['password'];   
+    $num_secu=$_POST['numsecu'];
+    $query->execute(array($nom,$prenom,$sexe,$age,$email,$password,$num_secu));
+}
 ?>
 
 <!DOCTYPE html>
@@ -63,12 +84,12 @@ include('database.php');
                 <div class="field-body">
                     <div class="field">
                         <p class="control is-expanded">
-                            <input class="input" type="text" placeholder="Nom">
+                            <input class="input" type="text" placeholder="Nom"  name="nom" required>
                         </p>
                     </div>
                     <div class="field">
                         <p class="control is-expanded">
-                            <input class="input" type="text" placeholder="Prénom">
+                            <input class="input" type="text" placeholder="Prénom" name="prenom" required>
                         </p>
                     </div>
                 </div>
@@ -80,7 +101,7 @@ include('database.php');
                 <div class="field-body">
                     <div class="field">
                         <p class="control is-expanded has-icons-left">
-                            <input class="input" type="text" placeholder="mail@mail.com">
+                            <input class="input" type="text" placeholder="mail@mail.com" name="email" required>
                             <span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i>
 </span>
                         </p>
@@ -94,7 +115,7 @@ include('database.php');
                 <div class="field-body">
                     <div class="field">
                         <p class="control is-expanded has-icons-left">
-                            <input class="input" type="password" placeholder="*******">
+                            <input class="input" type="password" placeholder="*******" name="password" required>
                             <span class="icon"><i class="fa fa-key" aria-hidden="true"></i>
 </span>
                         </p>
@@ -127,7 +148,7 @@ include('database.php');
                 <div class="field-body">
                     <div class="field">
                         <p class="control">
-                            <input class="input" type="number">
+                            <input class="input" type="number" name="age" required>
 
                         </p>
                     </div>
@@ -140,7 +161,7 @@ include('database.php');
                 <div class="field-body">
                     <div class="field">
                         <p class="control has-icons-left">
-                            <input class="input" type="text" name="numsecu">
+                            <input class="input" type="text" name="numsecu" required>
                             <span class="icon">
                                 <i class="fa fa-id-card-o" aria-hidden="true"></i>
 
@@ -157,8 +178,8 @@ include('database.php');
                 <div class="field-body">
                     <div class="field">
                         <div class="control is-pulled-right">
-                            <input type="submit" class="button is-success">
-                            <a class="button is-danger" href="Analyse.php">
+                            <input type="submit" class="button is-success" name="adduserform">
+                            <a class="button is-danger" href="patients.php">
                                 Annuler
                             </a>
                         </div>
