@@ -23,7 +23,7 @@ if ($count) {
 $tab = "";
 
 $db = getDB();
-$recap = $db->prepare("SELECT `datePrel`, `typePrel`, m.nom nomMedecin, a.nomAnalyse analyse, a.resultat resultat FROM prelevement pr INNER JOIN patient pa ON pr.`idPatient`=pa.idPatient INNER JOIN medecin m ON pr.`idMedecin`=m.idMedecin INNER JOIN analyse a ON pr.`idPrelevement`=a.idPrelevement WHERE pa.`idPatient`=:idPatient;");
+$recap = $db->prepare("SELECT `datePrel`, `typePrel`, m.nom nomMedecin, a.nomAnalyse analyse, a.resultat resultat, a.commentaire commentaire FROM prelevement pr INNER JOIN patient pa ON pr.`idPatient`=pa.idPatient INNER JOIN medecin m ON pr.`idMedecin`=m.idMedecin INNER JOIN analyse a ON pr.`idPrelevement`=a.idPrelevement WHERE pa.`idPatient`=:idPatient;");
 $recap->bindParam(":idPatient", $userId, PDO::PARAM_INT);
 $recap->execute();
 while($row = $recap->fetch())
@@ -36,9 +36,20 @@ while($row = $recap->fetch())
       <td>" . $row['typePrel'] . "</td>
       <td>" . $row['analyse'] . "</td>
       <td>" . $row['resultat'] . "</td>
-      <td><a class='icon'>
-          <i class='fa fa-info-circle' aria-hidden='true'></i>
-      </a></td>
+      <td><div class='dropdown is-hoverable is-right'>
+  <div class='dropdown-trigger'>
+    <span class='icon' aria-haspopup='true' aria-controls='dropdown-menu4'>
+      <i class='fa fa-info-circle' aria-hidden='true'></i>
+    </p>
+  </div>
+  <div class='dropdown-menu' id='dropdown-menu2' role='menu'>
+    <div class='dropdown-content'>
+      <div class='dropdown-item'>
+        <p>". $row['commentaire'] . "</p>
+      </div>
+    </div>
+  </div>
+</div></td>
   </tr>
 
   ";
@@ -63,36 +74,36 @@ while($row = $recap->fetch())
 
   <body>
 
-        <nav class="navbar">
-          <div class="container">
-            <div class="navbar-brand">
-              <p class="navbar-item" href="#">
-                <img src="images/logo.png" alt="Logo">
-              </p>
-              <div class="navbar-item">
-                <p>Infos</p>
-              </div>
-            </div>
-            <span class="navbar-burger burger" data-target="navbarMenu">
-                            <span></span>
-            <span></span>
-            <span></span>
-            </span>
-            <div class="navbar-end">
-              <div class="navbar-item">
-                <a class="button is-danger" href="Medecin.php">
-                                Logout
-                            </a>
-              </div>
-            </div>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <p class="navbar-item" href="#">
+            <img src="images/logo.png" alt="Logo">
+          </p>
+          <div class="navbar-item">
+            <p>Infos</p>
           </div>
-        </nav>
-<div class="hero is-info is-bold">
-  <div class="hero-body container">
-    <h1 class="title">Fiche patient</h1>
-    <h2 class="subtitle"><?php echo($nom); ?></h2>
-  </div>
-</div>
+        </div>
+        <span class="navbar-burger burger" data-target="navbarMenu">
+                          <span></span>
+        <span></span>
+        <span></span>
+        </span>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <a class="button is-danger" href="Medecin.php">
+                              Logout
+                          </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="hero is-info is-bold">
+      <div class="hero-body container">
+        <h1 class="title">Fiche patient</h1>
+        <h2 class="subtitle"><?php echo($nom); ?></h2>
+      </div>
+    </div>
     <div class="section">
       <div class="columns">
         <div class="column is-3 card is-paddingless">
@@ -144,9 +155,6 @@ while($row = $recap->fetch())
         </div>
       </div>
     </div>
-
-
-
   </body>
 
   </html>
