@@ -128,7 +128,7 @@ while($row = $recap->fetch())
             </p>
           </div>
           <div class="card-footer">
-            <a href="addAnalyse.php" class="card-footer-item"><span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i>
+            <a href="addAnalyse.php?id=<?php echo($userId); ?>" class="card-footer-item"><span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i>
 </span>Modifier</a>
             <a href="#" class="card-footer-item"><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>Supprimer</a>
           </div>
