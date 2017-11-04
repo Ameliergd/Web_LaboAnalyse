@@ -21,9 +21,9 @@ if (!empty($_POST['addanalyseform']))
     $nomAnalyse=$_POST['analyse'];
     $resultat=$_POST['resultat'];
     $commentaire=$_POST['commentaire'];
-    
+
     $output = implode(' ', array($datPrel, $TypePrel, $nomAnalyse, $resultat, $commentaire));
-    
+
     $query->execute(array($datPrel,$TypePrel));
     $query1->execute(array($nomAnalyse,$resultat,$commentaire));
 
@@ -44,7 +44,7 @@ if (!empty($_POST['addanalyseform']))
     <!-- Bulma Version 0.6.0 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw=" crossorigin="anonymous" />
 </head>
-    
+
 <body>
     <div>
         <section class="hero is-info is-bold">
@@ -84,7 +84,7 @@ if (!empty($_POST['addanalyseform']))
                                         <div class="level-item">
                                             <div class="select is-info is-expended">
                                                 <select name="prelevement" required>
-                                          
+
                                           <option value="sanguin">Sanguin</option>
                                           <option value ="Urianire">Urinaire</option>
                                           <option value ="salivaire">salivaire</option>
@@ -153,13 +153,6 @@ if (!empty($_POST['addanalyseform']))
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="box">
-<!--
-                            <p>
-                                <?php echo($output); ?>
-                            </p>
--->
                         </div>
                     </form>
                 </div>
