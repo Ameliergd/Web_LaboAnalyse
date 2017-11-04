@@ -5,7 +5,11 @@
 include('include/database.php');
 include('include/userClass.php');
 
+$_SESSION['uid'] = null;
+
 $userClass = new userClass();
+
+
 
 $errorMsgLogin='<br/>';
 /* Login Form */
