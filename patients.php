@@ -10,7 +10,7 @@ if (!$_SESSION['uid']){
 $output = "";
 
 $db = getDB();
-$query = $db->prepare("SELECT patient.idPatient, patient.nom, patient.prenom FROM patient INNER JOIN prelevement p ON p.`idPatient`=patient.idPatient INNER JOIN medecin m ON p.`idMedecin`=m.idMedecin WHERE m.idMedecin=:idMedecin ORDER BY nom;");
+$query = $db->prepare("SELECT idPatient, nom, prenom, sexe, age FROM patient ORDER BY nom;");
 $query->bindParam("idMedecin", $_SESSION['uid'], PDO::PARAM_INT);
 $query->execute();
 $count=$query->rowCount();
@@ -20,15 +20,13 @@ while($row = $query->fetch())
   $output = $output. "
   <tr>
     <td>".$row['idPatient']."</td>
-    <td>".$row['nom']."</td>
+    <td>".strtoupper($row['nom'])."</td>
     <td>".$row['prenom']."</td>
-    <td>27-09-2017</td>
+    <td>". $row['age'] ." </td>
+    <td>". GenderSymbol($row['sexe']) ." </td>
     <td><a href='" . BASE_URL . "infosPatient.php?id=" . $row['idPatient'] . "'>+ d'infos<span class='icon'>
                 <i class='fa fa-info-circle' aria-hidden='true'></i>
                 </span></a></td>
-    <td><a class='icon'>
-                    <i class='fa fa-pencil' aria-hidden='true'></i>
-                    </a></td>
   </tr>";
 }
 
@@ -47,103 +45,63 @@ while($row = $query->fetch())
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <!-- Bulma Version 0.6.0 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw=" crossorigin="anonymous" />
+    <!-- Ajax Typeahead script -->
+
+    <style>
+    /* filter table specific styling */
+    td.alt { background-color: #ffc; background-color: rgba(255, 255, 0, 0.2); }
+    </style>
   </head>
 
   <body>
 
 
-        <nav class="navbar">
-          <div class="container">
-            <div class="navbar-brand">
-              <p class="navbar-item">
-                <img src="images/logo.png" alt="Logo">
-              </p>
-              <div class="navbar-item">
-                <p>Expace Médecin</p>
-              </div>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <p class="navbar-item">
+            <img src="images/logo.png" alt="Logo">
+          </p>
+          <div class="navbar-item">
+            <p>Expace Médecin</p>
+          </div>
 
-            </div>
-            <span class="navbar-burger burger" data-target="navbarMenu">
+        </div>
+        <span class="navbar-burger burger" data-target="navbarMenu">
                             <span></span>
-            <span></span>
-            <span></span>
-            </span>
+        <span></span>
+        <span></span>
+        </span>
 
-            <div class="navbar-end">
-              <div class="navbar-item">
-                <a class="button is-danger" href="medecin.php">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <a class="button is-danger" href="medecin.php">
                                     Logout
                                 </a>
-              </div>
-            </div>
-          </div>
-        </nav>
-        <div class="hero is-bold is-info">
-          <div class="hero-body">
-            <div class="container">
-              <h1 class="title">
-                Bienvenue Dr. <?php echo($_SESSION['nomMedecin']); ?>
-              </h1>
-            </div>
-          </div>
-        </div>
-    <div class="section container">
-      <div class="columns">
-        <div class="column is-5 is-offset-one-quarter">
-          <div class="level">
-            <div class="level-left">
-              <div class="level-item">
-                <div class="field has-addons">
-                  <p class="control">
-                    <input class="input" type="text" placeholder="Nom du patient">
-                  </p>
-                  <p class="control">
-                    <button class="button is-info">
-                                <span class="icon">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </span>
-                            </button>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="level-right">
-              <div class="level-item">
-                <p class="control">
-                  <a class="button is-success" href="addUser.php">
-                            <span class="icon">
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                            </span>
-                        </a>
-                </p>
-              </div>
-              <div class="level-item">
-                <p class="control">
-                  <button class="button is-danger">
-                            <span class="icon">
-                                <i class="fa fa-minus" aria-hidden="true"></i>
-                            </span>
-                        </button>
-                </p>
-              </div>
-            </div>
-
           </div>
         </div>
       </div>
-
+    </nav>
+    <div class="hero is-bold is-info">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+                Bienvenue Dr. <?php echo($_SESSION['nomMedecin']); ?>
+              </h1>
+        </div>
+      </div>
     </div>
+
     <div class="section container">
-      <table class="table is-hoverable is-striped is-fullwidth">
+      <table class="table is-hoverable is-striped is-fullwidth sieve">
         <thead>
           <tr>
-            <th><abbr title="IdPatient">ID</abbr></th>
-            <th><abbr title="Nom">Nom</abbr></th>
-            <th><abbr title="Prénom">Prénom</abbr></th>
-            <th><abbr title="Date">Date</abbr></th>
-            <th><abbr></abbr></th>
-            <th><abbr></abbr></th>
+            <th scope="col"><abbr title="IdPatient">ID</abbr></th>
+            <th scope="col"><abbr title="Nom">Nom</abbr></th>
+            <th scope="col"><abbr title="Prénom">Prénom</abbr></th>
+            <th scope="col"><abbr title="Age">Âge</abbr></th>
+            <th scope="col"><abbr title="Sexe">Sexe</abbr></th>
+            <th scope="col"><abbr></abbr></th>
           </tr>
         </thead>
         <tbody>
@@ -154,6 +112,13 @@ while($row = $query->fetch())
 
       </table>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/jquery.sieve.min.js"></script>
+    <script>
+      $(document).ready(function() {
+      $("table.sieve").sieve();
+      });
+    </script>
 
   </body>
 
