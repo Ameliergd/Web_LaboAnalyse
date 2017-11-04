@@ -1,12 +1,6 @@
 <?php
 include('include/database.php');
 
-// if (!$_SESSION['uid']){
-//     header("Location:medecin.php");
-//     die();
-// }
-
-
 $db = getDB();
 $userId = htmlspecialchars($_GET['id']);
 

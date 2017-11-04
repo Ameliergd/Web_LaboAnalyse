@@ -10,16 +10,17 @@ $db = getDB(); // Création de la connection à la base de données
 $query=$db->prepare("INSERT INTO patient (nom,prenom,sexe,age,email,password,num_secu) VALUES (?,?,?,?,?,?,?)"); // Préparation de la requête en passant par la connection définie précédemment
 
 if (!empty($_POST['adduserform']))
-    
+
 {
     $nom=$_POST['nom'];
     $prenom=$_POST['prenom'];
     $sexe=$_POST['sexe'];
     $age=$_POST['age'];
     $email=$_POST['email'];
-    $password=$_POST['password'];   
+    $password=$_POST['password'];
     $num_secu=$_POST['numsecu'];
     $query->execute(array($nom,$prenom,$sexe,$age,$email,$password,$num_secu));
+    header("Location:patients.php");
 }
 ?>
 
@@ -57,7 +58,7 @@ if (!empty($_POST['adduserform']))
                 </span>
                 <div class="navbar-end">
                     <div class="navbar-item">
-                        <a class="button is-danger" href="Medecin.php">
+                        <a class="button is-danger" href="medecin.php">
                             Logout
                         </a>
                     </div>
@@ -75,7 +76,7 @@ if (!empty($_POST['adduserform']))
     <div class="section container">
         <div class="columns">
             <div class="column is-7 is-offset-2">
-                <form method="post" action="#">
+                <form method="post" action="">
 
             <div class="field is-horizontal">
                 <div class="field-label">
@@ -130,11 +131,11 @@ if (!empty($_POST['adduserform']))
                     <div class="field is-narrow">
                         <div class="control">
                             <label class="radio">
-                                <input type="radio" name="sexe">
+                                <input type="radio" name="sexe" value="M">
                                 Masculin
                             </label>
                             <label class="radio">
-                                <input type="radio" name="sexe">
+                                <input type="radio" name="sexe" value="F">
                                 Féminin
                             </label>
                         </div>

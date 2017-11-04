@@ -6,7 +6,6 @@ if (!$_SESSION['uid']){
     die();
 }
 
-
 $output = "";
 
 $db = getDB();
