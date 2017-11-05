@@ -17,7 +17,7 @@ $count=$query->rowCount();
 while($row = $query->fetch())
 {
   $output = $output. "
-  <tr>
+  <tr class='record'>
     <td>".$row['idPatient']."</td>
     <td>".strtoupper($row['nom'])."</td>
     <td>".$row['prenom']."</td>
@@ -115,8 +115,8 @@ while($row = $query->fetch())
       $(document).ready(function() {
         $("table.sieve").sieve();
         $(".delPatient").click(function() {
-          $("#".concat(this.id)).addClass("animated bounceOut");
           $.post('include/deleteUser.php', {"id": this.id});
+          $(this).parents(".record").addClass("animated bounceOutLeft").animate({ opacity: "hide" }, "slow");
         })
       });
 
