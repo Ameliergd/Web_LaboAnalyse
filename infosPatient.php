@@ -77,6 +77,8 @@ while ($row = $recap->fetch()) {
     <title>Infos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <!-- Bulma Version 0.6.0 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw=" crossorigin="anonymous" />
   </head>
@@ -281,6 +283,7 @@ while ($row = $recap->fetch()) {
     <script>
       $("#showModal").click(function() {
         $(".modal").addClass("is-active");
+        $(".modal-card").addClass("animated slideInDown");
       });
       function hideModal() {
         $(".modal").removeClass("is-active");
