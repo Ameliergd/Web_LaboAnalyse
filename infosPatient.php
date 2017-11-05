@@ -4,6 +4,18 @@ include('include/database.php');
 $db = getDB();
 $userId = htmlspecialchars($_GET['id']);
 
+
+
+function getPrelevements() {
+  $prelevements = "";
+  $db = getDB();
+  $sql = 'SELECT DISTINCT typePrel FROM prelevement ORDER BY typePrel;';
+  foreach ($db->query($sql) as $row) {
+    $prelevements = $prelevements . "<option value='". $row['typePrel'] ."'>". $row['typePrel'] ."</option>";
+  }
+  return $prelevements;
+}
+
 /* Infos personnelles du patient */
 $infos = $db->prepare("SELECT nom, prenom, sexe, age, email, num_secu FROM patient WHERE idPatient=:userId;");
 $infos->bindParam(":userId", $userId, PDO::PARAM_INT);
@@ -51,11 +63,8 @@ while($row = $recap->fetch())
   </div>
 </div></td>
   </tr>
-
   ";
 }
-
-
 ?>
 
   <!DOCTYPE html>
@@ -106,112 +115,114 @@ while($row = $recap->fetch())
       </div>
     </div>
 
-    <div class="modal">
-      <div class="modal-background"></div>
-      <div class="modal-card">
-        <header class="modal-card-head">
-          <p class="modal-card-title">Ajouter une Analyse</p>
-          <button class="delete" aria-label="close" onclick="hideModal()"></button>
-        </header>
-        <section class="modal-card-body">
+    <form method="post" action="">
+      <div class="modal">
 
-          <div class="level">
-            <div class="level-left">
-              <div class="level-item">
-                <div class="field is-horizontal">
-                    <div class="field-label">
-                            <label class="label">Date</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field">
-                            <p class="control is-expended">
-                                <input class="input is-info" type="date"  name="date" required>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-              </div>
-            </div>
-            <div class="level-right">
-              <div class="level-item">
-                <div class="field is-horizontal">
-                    <div class="field-label">
-                            <label class="label">Analyse</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field">
-                            <p class="control is-expanded">
-                                <input class="input is-info" type="text" placeholder="Analyse" name="analyse" required>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Ajouter une Analyse</p>
+            <button class="delete" aria-label="close" onclick="hideModal()"></button>
+          </header>
+          <section class="modal-card-body">
 
-          <div class="level">
-            <div class="level-left">
-              <div class="level-item">
-                <div class="field is-horizontal">
-                    <div class="field-label">
-                            <label class="label">Prelevement</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field">
-                          <div class="select is-info is-expended">
-                              <select name="prelevement" required>
-
-                        <option value="sanguin">Sanguin</option>
-                        <option value ="Urianire">Urinaire</option>
-                        <option value ="salivaire">salivaire</option>
-                    </select>
+            <div class="level">
+              <div class="level-left">
+                <div class="level-item">
+                  <div class="field is-horizontal">
+                      <div class="field-label">
+                              <label class="label">Date</label>
+                      </div>
+                      <div class="field-body">
+                          <div class="field">
+                              <p class="control is-expended">
+                                  <input class="input is-info" type="date"  name="date" required>
+                              </p>
                           </div>
-                        </div>
-                    </div>
-                </div>
-              </div>
-            </div>
-            <div class="level-right">
-              <div class="level-item">
-                <div class="field is-horizontal">
-                    <div class="field-label">
-                            <label class="label">Resultat</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field">
-                          <p class="control is-expanded">
-                              <input class="input is-info" type="text" placeholder="OK" name="resulat" required>
-                          </p>
-                        </div>
-                    </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="field">
-              <div class="label">
-                  <label class="label">Commentaire</label>
-              </div>
-              <div class="field-body">
-                  <div class="field">
-                      <p class="control is-expanded">
-                          <textarea class="textarea is-info"  placeholder="Commentaire" rows="8" name="commentaire"></textarea>
-                      </p>
+                      </div>
                   </div>
+                </div>
               </div>
-          </div>
+              <div class="level-right">
+                <div class="level-item">
+                  <div class="field is-horizontal">
+                      <div class="field-label">
+                              <label class="label">Analyse</label>
+                      </div>
+                      <div class="field-body">
+                          <div class="field">
+                              <p class="control is-expanded">
+                                  <input class="input is-info" type="text" placeholder="Analyse" name="analyse" required>
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="level">
+              <div class="level-left">
+                <div class="level-item">
+                  <div class="field is-horizontal">
+                      <div class="field-label">
+                              <label class="label">Prelevement</label>
+                      </div>
+                      <div class="field-body">
+                          <div class="field">
+                            <div class="select is-info is-expended">
+                                <select name="prelevement" required>
+
+                          <?php echo(getPrelevements()); ?>
+                      </select>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="level-right">
+                <div class="level-item">
+                  <div class="field is-horizontal">
+                      <div class="field-label">
+                              <label class="label">Resultat</label>
+                      </div>
+                      <div class="field-body">
+                          <div class="field">
+                            <p class="control is-expanded">
+                                <input class="input is-info" type="text" placeholder="OK" name="resulat" required>
+                            </p>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+                <div class="label">
+                    <label class="label">Commentaire</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control is-expanded">
+                            <textarea class="textarea is-info"  placeholder="Commentaire" rows="8" name="commentaire"></textarea>
+                        </p>
+                    </div>
+                </div>
+            </div>
 
 
 
 
-        </section>
-        <footer class="modal-card-foot">
-          <button class="button is-success">Save changes</button>
-          <button class="button" onclick="hideModal()">Cancel</button>
-        </footer>
+          </section>
+          <footer class="modal-card-foot">
+            <input type="submit" class="button is-success" name="addAnalyseForm">
+            <button class="button" onclick="hideModal()">Cancel</button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </form>
+
 
     <div class="section">
       <div class="columns">
@@ -272,10 +283,6 @@ while($row = $recap->fetch())
       function hideModal() {
         $(".modal").removeClass("is-active");
       }
-      // $(".delete").click(function() {
-      //  $(".modal").removeClass("is-active");
-      // });
-
     </script>
   </body>
 
