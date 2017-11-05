@@ -26,7 +26,7 @@ while($row = $query->fetch())
     <td><a href='" . BASE_URL . "infosPatient.php?id=" . $row['idPatient'] . "'>+ d'infos<span class='icon'>
                 <i class='fa fa-info-circle' aria-hidden='true'></i>
                 </span></a></td>
-    <td><a style='color: red;'><span class='icon'>
+    <td><a class='delPatient' style='color: red;' id='". $row['idPatient'] ."'><span class='icon'>
                 <i class='fa fa-trash' aria-hidden='true'></i></i>
                 </span></a></td>
   </tr>";
@@ -45,6 +45,8 @@ while($row = $query->fetch())
     <title>Patients</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <!-- Bulma Version 0.6.0 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw=" crossorigin="anonymous" />
   </head>
@@ -85,15 +87,6 @@ while($row = $query->fetch())
         </div>
       </div>
     </div>
-    <div class="modal">
-      <div class="modal-background"></div>
-      <div class="modal-content">
-        <p class="image is-4by3">
-          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="">
-        </p>
-      </div>
-      <button class="modal-close is-large" aria-label="close"></button>
-    </div>
 
     <div class="section container">
       <table class="table is-hoverable is-striped is-fullwidth sieve">
@@ -120,15 +113,11 @@ while($row = $query->fetch())
     <script src="js/jquery.sieve.min.js"></script>
     <script>
       $(document).ready(function() {
-      $("table.sieve").sieve();
-      });
-
-      $("#showModal").click(function() {
-        $(".modal").addClass("is-active");
-      });
-
-      $(".modal-close").click(function() {
-        $(".modal").removeClass("is-active");
+        $("table.sieve").sieve();
+        $(".delPatient").click(function() {
+          $("#".concat(this.id)).addClass("animated bounceOut");
+          $.post('include/deleteUser.php', {"id": this.id});
+        })
       });
 
     </script>
