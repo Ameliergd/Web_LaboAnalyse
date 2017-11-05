@@ -98,12 +98,121 @@ while($row = $recap->fetch())
         </div>
       </div>
     </nav>
+
     <div class="hero is-info is-bold">
       <div class="hero-body container">
         <h1 class="title">Fiche patient</h1>
         <h2 class="subtitle"><?php echo($nom); ?></h2>
       </div>
     </div>
+
+    <div class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Ajouter une Analyse</p>
+          <button class="delete" aria-label="close" onclick="hideModal()"></button>
+        </header>
+        <section class="modal-card-body">
+
+          <div class="level">
+            <div class="level-left">
+              <div class="level-item">
+                <div class="field is-horizontal">
+                    <div class="field-label">
+                            <label class="label">Date</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control is-expended">
+                                <input class="input is-info" type="date"  name="date" required>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="level-right">
+              <div class="level-item">
+                <div class="field is-horizontal">
+                    <div class="field-label">
+                            <label class="label">Analyse</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control is-expanded">
+                                <input class="input is-info" type="text" placeholder="Analyse" name="analyse" required>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="level">
+            <div class="level-left">
+              <div class="level-item">
+                <div class="field is-horizontal">
+                    <div class="field-label">
+                            <label class="label">Prelevement</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                          <div class="select is-info is-expended">
+                              <select name="prelevement" required>
+
+                        <option value="sanguin">Sanguin</option>
+                        <option value ="Urianire">Urinaire</option>
+                        <option value ="salivaire">salivaire</option>
+                    </select>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="level-right">
+              <div class="level-item">
+                <div class="field is-horizontal">
+                    <div class="field-label">
+                            <label class="label">Resultat</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                          <p class="control is-expanded">
+                              <input class="input is-info" type="text" placeholder="OK" name="resulat" required>
+                          </p>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+              <div class="label">
+                  <label class="label">Commentaire</label>
+              </div>
+              <div class="field-body">
+                  <div class="field">
+                      <p class="control is-expanded">
+                          <textarea class="textarea is-info"  placeholder="Commentaire" rows="8" name="commentaire"></textarea>
+                      </p>
+                  </div>
+              </div>
+          </div>
+
+
+
+
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-success">Save changes</button>
+          <button class="button" onclick="hideModal()">Cancel</button>
+        </footer>
+      </div>
+    </div>
+
     <div class="section">
       <div class="columns">
         <div class="column is-3 card is-paddingless">
@@ -128,7 +237,7 @@ while($row = $recap->fetch())
             </p>
           </div>
           <div class="card-footer">
-            <a href="addAnalyse.php?id=<?php echo($userId); ?>" class="card-footer-item"><span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i>
+            <a class="card-footer-item" id="showModal"><span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i>
 </span>Modifier</a>
             <a href="#" class="card-footer-item"><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>Supprimer</a>
           </div>
@@ -155,6 +264,19 @@ while($row = $recap->fetch())
         </div>
       </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+      $("#showModal").click(function() {
+        $(".modal").addClass("is-active");
+      });
+      function hideModal() {
+        $(".modal").removeClass("is-active");
+      }
+      // $(".delete").click(function() {
+      //  $(".modal").removeClass("is-active");
+      // });
+
+    </script>
   </body>
 
   </html>
