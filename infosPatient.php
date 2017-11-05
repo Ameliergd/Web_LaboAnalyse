@@ -6,14 +6,15 @@ $userId = htmlspecialchars($_GET['id']);
 
 
 
-function getPrelevements() {
-  $prelevements = "";
-  $db = getDB();
-  $sql = 'SELECT DISTINCT typePrel FROM prelevement ORDER BY typePrel;';
-  foreach ($db->query($sql) as $row) {
-    $prelevements = $prelevements . "<option value='". $row['typePrel'] ."'>". $row['typePrel'] ."</option>";
-  }
-  return $prelevements;
+function getPrelevements()
+{
+    $prelevements = "";
+    $db = getDB();
+    $sql = 'SELECT DISTINCT typePrel FROM prelevement ORDER BY typePrel;';
+    foreach ($db->query($sql) as $row) {
+        $prelevements = $prelevements . "<option value='". $row['typePrel'] ."'>". $row['typePrel'] ."</option>";
+    }
+    return $prelevements;
 }
 
 /* Infos personnelles du patient */
@@ -24,7 +25,7 @@ $count=$infos->rowCount();
 $data=$infos->fetch(PDO::FETCH_OBJ);
 $db = null;
 if ($count) {
-    $nom= implode(' ',array($data->nom, $data->prenom));
+    $nom= implode(' ', array($data->nom, $data->prenom));
     $email= $data->email;
     $sexe= GenderSymbol($data->sexe);
     $age= $data->age;
@@ -38,9 +39,8 @@ $db = getDB();
 $recap = $db->prepare("SELECT `datePrel`, `typePrel`, m.nom nomMedecin, a.nomAnalyse analyse, a.resultat resultat, a.commentaire commentaire FROM prelevement pr INNER JOIN patient pa ON pr.`idPatient`=pa.idPatient INNER JOIN medecin m ON pr.`idMedecin`=m.idMedecin INNER JOIN analyse a ON pr.`idPrelevement`=a.idPrelevement WHERE pa.`idPatient`=:idPatient;");
 $recap->bindParam(":idPatient", $userId, PDO::PARAM_INT);
 $recap->execute();
-while($row = $recap->fetch())
-{
-  $tab = $tab . "
+while ($row = $recap->fetch()) {
+    $tab = $tab . "
 
   <tr>
       <td>". $row['datePrel'] ."</td>
@@ -170,11 +170,13 @@ while($row = $recap->fetch())
                       </div>
                       <div class="field-body">
                           <div class="field">
-                            <div class="select is-info is-expended">
-                                <select name="prelevement" required>
+                            <div class="control is-expanded">
+                              <div class="select is-info is-fullwidth">
+                                  <select name="prelevement" required>
 
-                          <?php echo(getPrelevements()); ?>
-                      </select>
+                            <?php echo(getPrelevements()); ?>
+                        </select>
+                              </div>
                             </div>
                           </div>
                       </div>
@@ -257,12 +259,12 @@ while($row = $recap->fetch())
           <table class="table is-hoverable is-striped is-fullwidth">
             <thead>
               <tr>
-                <th><abbr title="Date">Date</abbr></th>
-                <th><abbr title="medecin">Medecin</abbr></th>
-                <th><abbr title="Type">Type Prélèvement</abbr></th>
-                <th><abbr title="Analyse">Analyses</abbr></th>
-                <th><abbr title="Resultat">Résultat</abbr></th>
-                <th><abbr title="Rapport">Commentaire</abbr></th>
+                <th>Date</th>
+                <th>Medecin</th>
+                <th>Type Prélèvement</th>
+                <th>Analyses</th>
+                <th>Résultat</th>
+                <th>Commentaire</th>
               </tr>
             </thead>
             <tbody>

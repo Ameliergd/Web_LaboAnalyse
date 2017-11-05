@@ -26,6 +26,9 @@ while($row = $query->fetch())
     <td><a href='" . BASE_URL . "infosPatient.php?id=" . $row['idPatient'] . "'>+ d'infos<span class='icon'>
                 <i class='fa fa-info-circle' aria-hidden='true'></i>
                 </span></a></td>
+    <td><a style='color: red;'><span class='icon'>
+                <i class='fa fa-trash' aria-hidden='true'></i></i>
+                </span></a></td>
   </tr>";
 }
 
@@ -82,14 +85,6 @@ while($row = $query->fetch())
         </div>
       </div>
     </div>
-    <div class="section">
-      <div class='level-item'>
-            <p class='control'><a class='button is-success' href='addUser.php'><span class='icon'><i class='fa fa-plus' aria-hidden='true'></i></span></a></p>
-          </div>
-          <div class='level-item'>
-            <p class='control'><button class='button is-danger' id='showModal'><span class='icon'><i class='fa fa-minus' aria-hidden='true'></i></span></button></p>
-          </div>
-    </div>
     <div class="modal">
       <div class="modal-background"></div>
       <div class="modal-content">
@@ -109,6 +104,7 @@ while($row = $query->fetch())
             <th scope="col">Prénom</th>
             <th scope="col">Âge</th>
             <th scope="col">Sexe</th>
+            <th scope="col"></th>
             <th scope="col"></th>
           </tr>
         </thead>
