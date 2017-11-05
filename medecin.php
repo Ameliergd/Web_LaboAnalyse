@@ -22,7 +22,7 @@ if (!empty($_POST['loginSubmit'])) {
             $url=BASE_URL.'patients.php';
             header("Location: $url"); // Redirection vers la page patients.php
         } else {
-            $errorMsgLogin='<p class="tag is-large is-danger">Please check login details.</p>';
+            $errorMsgLogin='<p class="tag is-large is-danger animated bounceIn">Please check login details.</p>';
         }
     }
 }
@@ -41,6 +41,8 @@ if (!empty($_POST['loginSubmit'])) {
     <title>Informations</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <!-- Bulma Version 0.6.0 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw=" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/medecin.css">
