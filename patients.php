@@ -44,17 +44,9 @@ while($row = $query->fetch())
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <!-- Bulma Version 0.6.0 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw=" crossorigin="anonymous" />
-    <!-- Ajax Typeahead script -->
-
-    <style>
-    /* filter table specific styling */
-    td.alt { background-color: #ffc; background-color: rgba(255, 255, 0, 0.2); }
-    </style>
   </head>
 
   <body>
-
-
     <nav class="navbar">
       <div class="container">
         <div class="navbar-brand">
@@ -90,17 +82,34 @@ while($row = $query->fetch())
         </div>
       </div>
     </div>
+    <div class="section">
+      <div class='level-item'>
+            <p class='control'><a class='button is-success' href='addUser.php'><span class='icon'><i class='fa fa-plus' aria-hidden='true'></i></span></a></p>
+          </div>
+          <div class='level-item'>
+            <p class='control'><button class='button is-danger' id='showModal'><span class='icon'><i class='fa fa-minus' aria-hidden='true'></i></span></button></p>
+          </div>
+    </div>
+    <div class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <p class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="">
+        </p>
+      </div>
+      <button class="modal-close is-large" aria-label="close"></button>
+    </div>
 
     <div class="section container">
       <table class="table is-hoverable is-striped is-fullwidth sieve">
         <thead>
           <tr>
-            <th scope="col"><abbr title="IdPatient">ID</abbr></th>
-            <th scope="col"><abbr title="Nom">Nom</abbr></th>
-            <th scope="col"><abbr title="Prénom">Prénom</abbr></th>
-            <th scope="col"><abbr title="Age">Âge</abbr></th>
-            <th scope="col"><abbr title="Sexe">Sexe</abbr></th>
-            <th scope="col"><abbr></abbr></th>
+            <th scope="col">ID</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Âge</th>
+            <th scope="col">Sexe</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -117,6 +126,15 @@ while($row = $query->fetch())
       $(document).ready(function() {
       $("table.sieve").sieve();
       });
+
+      $("#showModal").click(function() {
+        $(".modal").addClass("is-active");
+      });
+
+      $(".modal-close").click(function() {
+        $(".modal").removeClass("is-active");
+      });
+
     </script>
 
   </body>
