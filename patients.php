@@ -55,21 +55,20 @@ while ($row = $query->fetch()) {
 <body>
 <nav class="navbar">
     <div class="container">
-        <div class="navbar-brand">
-            <p class="navbar-item">
-                <img src="images/logo.png" alt="Logo">
-            </p>
-            <div class="navbar-item">
-                <p>Expace Médecin</p>
-            </div>
-
-        </div>
-        <span class="navbar-burger burger" data-target="navbarMenu">
-                            <span></span>
-        <span></span>
-        <span></span>
-        </span>
-
+      <div class="navbar-brand">
+          <a class="navbar-item" href="index.html">
+              <img src="images/logo.png" alt="Logo">
+          </a>
+          <div class="navbar-item">
+              <p>Expace Médecin</p>
+          </div>
+          <a class="navbar-burger" data-target="navbarMenu">
+              <span></span>
+              <span></span>
+              <span></span>
+          </a>
+      </div>
+      <div id="navbarMenu" class="navbar-menu">
         <div class="navbar-end">
             <div class="navbar-item">
                 <a class="button is-danger" href="medecin.php">
@@ -110,6 +109,7 @@ while ($row = $query->fetch()) {
 
     </table>
 </div>
+<script src="js/navbarburger.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/jquery.sieve.min.js"></script>
 <script>

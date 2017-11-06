@@ -41,30 +41,31 @@ if (!empty($_POST['adduserform'])) {
 <body>
 
 
-<nav class="navbar">
-    <div class="container">
+  <nav class="navbar">
+      <div class="container">
         <div class="navbar-brand">
-            <p class="navbar-item" href="#">
+            <a class="navbar-item" href="index.html">
                 <img src="images/logo.png" alt="Logo">
-            </p>
+            </a>
             <div class="navbar-item">
                 <p>Espace Médecin</p>
             </div>
-        </div>
-        <span class="navbar-burger burger" data-target="navbarMenu">
-                            <span></span>
+            <a class="navbar-burger" data-target="navbarMenu">
                 <span></span>
                 <span></span>
-                </span>
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <a class="button is-danger" href="medecin.php">
-                    Logout
-                </a>
-            </div>
+                <span></span>
+            </a>
         </div>
-    </div>
-</nav>
+        <div id="navbarMenu" class="navbar-menu">
+          <div class="navbar-end">
+              <div class="navbar-item">
+                  <a class="button is-danger" href="medecin.php">
+                      Logout
+                  </a>
+              </div>
+          </div>
+      </div>
+  </nav>
 
 <div class="hero is-success is-bold">
     <div class="hero-body container has-text-centered">
@@ -195,7 +196,7 @@ if (!empty($_POST['adduserform'])) {
 
 </div>
 
-
+<script src="js/navbarburger.js"></script>
 </body>
 
 </html>

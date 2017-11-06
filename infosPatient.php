@@ -86,30 +86,31 @@ while ($row = $recap->fetch()) {
 
 <body>
 
-<nav class="navbar">
-    <div class="container">
+  <nav class="navbar">
+      <div class="container">
         <div class="navbar-brand">
-            <p class="navbar-item" href="#">
+            <a class="navbar-item" href="index.html">
                 <img src="images/logo.png" alt="Logo">
-            </p>
+            </a>
             <div class="navbar-item">
                 <p>Infos</p>
             </div>
+            <a class="navbar-burger" data-target="navbarMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
         </div>
-        <span class="navbar-burger burger" data-target="navbarMenu">
-                          <span></span>
-        <span></span>
-        <span></span>
-        </span>
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <a class="button is-danger" href="Medecin.php">
-                    Logout
-                </a>
-            </div>
-        </div>
-    </div>
-</nav>
+        <div id="navbarMenu" class="navbar-menu">
+          <div class="navbar-end">
+              <div class="navbar-item">
+                  <a class="button is-danger" href="medecin.php">
+                      Logout
+                  </a>
+              </div>
+          </div>
+      </div>
+  </nav>
 
 <div class="hero is-info is-bold">
     <div class="hero-body container">
@@ -239,6 +240,7 @@ while ($row = $recap->fetch()) {
                 </figure>
             </div>
             <div class="card-content">
+              <div class="content">
                 <p><strong><?php echo($nom); ?></strong></p>
                 <p><strong>Sexe: </strong>
                     <?php echo($sexe); ?>
@@ -252,6 +254,8 @@ while ($row = $recap->fetch()) {
                 <p><strong>Num sécu: </strong>
                     <?php echo($numSecu); ?>
                 </p>
+              </div>
+
             </div>
             <div class="card-footer">
                 <a class="card-footer-item" id="showModal"><span class="icon"><i class="fa fa-pencil"
@@ -282,11 +286,13 @@ while ($row = $recap->fetch()) {
         </div>
     </div>
 </div>
+<script src="js/navbarburger.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
     $("#showModal").click(function () {
         $(".modal").addClass("is-active");
         $(".modal-card").addClass("animated slideInDown");
+        $(".modal-background").addClass("animated fadeIn");
     });
 
     function hideModal() {
