@@ -1,25 +1,27 @@
-document.addEventListener('DOMContentLoaded', function () {
+(function() {
+  document.addEventListener('DOMContentLoaded', function () {
 
-    // Get all "navbar-burger" elements
-    var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+      // Récupère tous les éléments "navbar-burger"
+      var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-    // Check if there are any navbar burgers
-    if ($navbarBurgers.length > 0) {
+      // Vérifie la présence d'un navbar-burger
+      if ($navbarBurgers.length > 0) {
 
-        // Add a click event on each of them
-        $navbarBurgers.forEach(function ($el) {
-            $el.addEventListener('click', function () {
+          // Ajout d'un envent click sur chacun d'entre eux
+          $navbarBurgers.forEach(function ($el) {
+              $el.addEventListener('click', function () {
 
-                // Get the target from the "data-target" attribute
-                var target = $el.dataset.target;
-                var $target = document.getElementById(target);
+                  // Récupère la cible de l'attribut "data-target"
+                  var target = $el.dataset.target;
+                  var $target = document.getElementById(target);
 
-                // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-                $el.classList.toggle('is-active');
-                $target.classList.toggle('is-active');
+                  // Change la classe du "navbar-burger" et de "navbar-menu"
+                  $el.classList.toggle('is-active');
+                  $target.classList.toggle('is-active');
 
-            });
-        });
-    }
+              });
+          });
+      }
 
-});
+  });
+}).call(this);
