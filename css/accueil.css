@@ -1,21 +1,6 @@
 
 div.hero-body {
-    background-image: url('../images/analyses-saint-denis.jpg') !important;
-    height: 400px;
-    opacity: 0.7;
+    background-image: url('../images/analyses-saint-denis.jpg');
+    opacity: 0.90;
 
-}
-
-h1.title {
-    color: White;
-    size: 18px;
-    font-weight: bold;
-    padding-top: 100px;
-    padding-right: 600px;
-}
-
-h2.subtitle {
-    color: white;
-    font-weight: bold;
-    padding-right: 600px;
 }
