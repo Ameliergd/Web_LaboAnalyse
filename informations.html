@@ -7,61 +7,58 @@
     <title>Informations</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
-
 </head>
 
 <body>
-<section class="entette">
-    <div class="hero-head">
-        <nav class="navbar">
-            <div class="container">
-                <div class="navbar-brand">
-                    <a class="navbar-item" href="#">
-                        <img src="images/logo.png" alt="Logo">
+
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">
+                <img src="images/logo.png" alt="Logo">
+            </a>
+            <a class="navbar-burger" data-target="navbarMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </div>
+        <div id="navbarMenu" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="index.html">ACCUEIL</a>
+                <a class="navbar-item is-active">INFORMATIONS</a>
+            </div>
+            <div class="navbar-end is-grouped">
+                <div class="navbar-item control">
+                    <a class="button is-primary" href="connexionPatient.php" target="_blank">
+                            <span class="icon">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </span>
+                        <span>ESPACE CLIENT</span>
                     </a>
                 </div>
-                <span class="navbar-burger burger" data-target="navbarMenu">
-                            <span></span>
-                    <span></span>
-                    <span></span>
-                    </span>
-
-                <div id="navbarMenu" class="navbar-menu">
-                    <div class="navbar-item">
-                        <a class="navbar-item is-active">ACCUEIL</a>
-                        <a class="navbar-item" href="informations.html">INFORMATIONS</a>
-                    </div>
+                <div class="navbar-item control">
+                    <a class="button is-info" href="medecin.php" target="_blank">
+                            <span class="icon">
+                                <i class="fa fa-user-md" aria-hidden="true"></i>
+                            </span>
+                        <span>ESPACE MEDECIN</span>
+                    </a>
                 </div>
-                <div class="navbar-end is-grouped">
-
-                    <div class="navbar-item control">
-                        <a class="button is-primary" href="connexionPatient.php" target="_blank">
-                                <span class="icon">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                </span>
-                            <span>ESPACE CLIENT</span>
-                        </a>
-                    </div>
-                    <div class="navbar-item control">
-                        <a class="button is-info" href="medecin.php" target="_blank">
-                                <span class="icon">
-                                    <i class="fa fa-user-md" aria-hidden="true"></i>
-                                </span>
-                            <span>ESPACE MEDECIN</span>
-                        </a>
-                    </div>
-
-                </div>
-
             </div>
-
-
-        </nav>
+        </div>
     </div>
-</section>
+</nav>
 
-<h1 class="title">AVANT DE VENIR AU LABORATOIRE</h1>
-<h2 class="subtitle">Subtitle</h2>
+<div class="hero is-info is-bold">
+    <div class="hero-body container">
+        <h1 class="title">AVANT DE VENIR AU LABORATOIRE</h1>
+        <h2 class="subtitle">Subtitle</h2>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="js/navbarburger.js"></script>
 
 </body>
 
