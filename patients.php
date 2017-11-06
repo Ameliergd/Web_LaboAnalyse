@@ -116,7 +116,7 @@ while ($row = $query->fetch()) {
     $(document).ready(function () {
         $("table.sieve").sieve();
         $(".delPatient").click(function () {
-            $.post('include/deleteUser.php', {"id": this.id});
+            $.post('include/deleteUser.php', {"id": this.id}, function(){location.reload();});
             $(this).parents(".record").addClass("animated bounceOutLeft").animate({opacity: "hide"}, "slow");
         })
     });
