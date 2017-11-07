@@ -82,6 +82,7 @@ while ($row = $recap->fetch()) {
     <!-- Bulma Version 0.6.0 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css"
           integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw=" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="css/responsivetable.css" />
 </head>
 
 <body>
@@ -265,7 +266,7 @@ while ($row = $recap->fetch()) {
             </div>
         </div>
         <div class="column">
-            <table class="table is-hoverable is-striped is-fullwidth">
+            <table class="table is-hoverable is-striped is-fullwidth is-responsive">
                 <thead>
                 <tr>
                     <th>Date</th>

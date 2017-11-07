@@ -50,6 +50,7 @@ while ($row = $query->fetch()) {
     <!-- Bulma Version 0.6.0 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css"
           integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw=" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="css/responsivetable.css" />
 </head>
 
 <body>
@@ -89,7 +90,7 @@ while ($row = $query->fetch()) {
 </div>
 
 <div class="section container">
-    <table class="table is-hoverable is-striped is-fullwidth sieve">
+    <table class="table is-hoverable is-striped is-fullwidth sieve is-responsive">
         <thead>
         <tr>
             <th scope="col">ID</th>
