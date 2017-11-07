@@ -237,7 +237,7 @@ while ($row = $recap->fetch()) {
         <div class="column is-3 card is-paddingless">
             <div class="card-image">
                 <figure class="image">
-                    <img src="http://www.fillmurray.com/300/300" alt="Photo de profil">
+                    <img src="http://www.fillmurray.com/200/150" alt="Photo de profil">
                 </figure>
             </div>
             <div class="card-content">
