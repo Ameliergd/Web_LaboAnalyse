@@ -15,7 +15,7 @@ if (!empty($_POST['loginSubmit'])) {
     if (strlen(trim($usernameEmail)) > 1 && strlen(trim($password)) > 1) {
         $res = $userClass->patientLogin($usernameEmail, $password); // Fonction de vérification des identifiants
         if ($res) {
-            $url = BASE_URL . 'infosPatient.php?id=' . $_SESSION['pid'];
+            $url = BASE_URL . 'patient-' . $_SESSION['pid'];
             header("Location: $url"); // Redirection vers la page index.html
         } else {
             $errorMsgLogin = '<p class="tag is-large is-danger">Please check login details.</p>';
@@ -46,7 +46,7 @@ if (!empty($_POST['loginSubmit'])) {
 </head>
 
 <body>
-<section class="hero is-success is-fullheight">
+<section class="hero is-light is-fullheight">
     <div class="hero-body">
         <div class="container has-text-centered">
             <div class="column is-4 is-offset-4">
@@ -54,7 +54,7 @@ if (!empty($_POST['loginSubmit'])) {
                 <p class="subtitle has-text-grey"> Vos Resultats en ligne .</p>
                 <div class="box">
                     <figure class="avatar">
-                        <img src="images/user.png">
+                        <img src="/images/user.png">
                     </figure>
                     <form method="post" action="" name="login">
                         <div class="field">

@@ -1,0 +1,12 @@
+## .htaccess file
+
+Options +FollowSymlinks
+RewriteEngine on
+
+RewriteRule   ^$   index.html  [L]
+RewriteRule   ^informations$   informations.html  [L]
+RewriteRule   ^medecin$   medecin.php  [L]
+RewriteRule   ^patient$   connexionPatient.php
+RewriteRule   ^patients$   patients.php
+RewriteRule   ^nouveau-patient$   addUser.php
+RewriteRule ^patient-([0-9]+)\.html$  infosPatient.php?id=$1  [L]
