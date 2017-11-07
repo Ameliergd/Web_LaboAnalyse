@@ -150,7 +150,7 @@ if (!empty($_POST['addanalyseform'])) {
                             <div class="field">
                                 <div class="control is-pulled-right">
                                     <input type="submit" class="button is-success" name="addanalyseform">
-                                    <a class="button is-danger" href="infosPatient.php">
+                                    <a class="button is-danger" href="infosPatient.php?id=<?php echo($infosPatient); ?>">
                                         Annuler
                                     </a>
                                 </div>

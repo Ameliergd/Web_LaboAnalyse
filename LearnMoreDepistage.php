@@ -9,11 +9,13 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <!-- Bulma Version 0.6.0 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw=" crossorigin="anonymous" />
+
   <style type="text/css">
     html,body {
       font-family: 'Open Sans';
     }
   </style>
+
 </head>
 <body>
   <section class="hero is-fullheight is-default is-bold">
@@ -21,8 +23,8 @@
     <nav class="navbar">
             <div class="container">
                 <div class="navbar-brand">
-                    <a class="navbar-item">
-                        <img src="/images/logo.png" alt="Logo">
+                    <a class="navbar-item" href="index.html">
+                        <img src="images/logo.png" alt="Logo">
                     </a>
                     <a class="navbar-burger" data-target="navbarMenu">
                         <span></span>
@@ -68,7 +70,7 @@
         <div class="columns is-vcentered">
           <div class="column is-5">
             <figure class="image is-4by3">
-              <img src="/images/depister-cancer.jpg" alt="Description">
+              <img src="images/depister-cancer.jpg" alt="Description">
             </figure>
           </div>
           <div class="column is-6 is-offset-1">
