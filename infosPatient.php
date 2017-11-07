@@ -90,8 +90,8 @@ while ($row = $recap->fetch()) {
   <nav class="navbar">
       <div class="container">
         <div class="navbar-brand">
-            <a class="navbar-item" href="index.html">
-                <img src="images/logo.png" alt="Logo">
+            <a class="navbar-item" href="/">
+                <img src="/images/logo.png" alt="Logo">
             </a>
             <div class="navbar-item">
                 <p>Infos</p>
@@ -105,7 +105,7 @@ while ($row = $recap->fetch()) {
         <div id="navbarMenu" class="navbar-menu">
           <div class="navbar-end">
               <div class="navbar-item">
-                  <a class="button is-danger" href="medecin.php">
+                  <a class="button is-danger" href="/medecin">
                       Logout
                   </a>
               </div>
@@ -237,7 +237,7 @@ while ($row = $recap->fetch()) {
         <div class="column is-3 card is-paddingless">
             <div class="card-image">
                 <figure class="image">
-                    <img src="images/userlogo.png" alt="Photo de profil">
+                    <img src="/images/userlogo.png" alt="Photo de profil">
                 </figure>
             </div>
             <div class="card-content">

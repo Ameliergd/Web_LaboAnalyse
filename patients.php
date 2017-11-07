@@ -2,7 +2,7 @@
 include('include/database.php');
 
 if (!$_SESSION['uid']) {
-    header("Location:medecin.php");
+    header("Location:/medecin");
     die();
 }
 
@@ -22,7 +22,7 @@ while ($row = $query->fetch()) {
     <td>" . $row['prenom'] . "</td>
     <td>" . $row['age'] . " </td>
     <td>" . GenderSymbol($row['sexe']) . " </td>
-    <td><a href='" . BASE_URL . "infosPatient.php?id=" . $row['idPatient'] . "'>+ d'infos<span class='icon'>
+    <td><a href='" . BASE_URL . "patient-" . $row['idPatient'] . ".html'>+ d'infos<span class='icon'>
                 <i class='fa fa-info-circle' aria-hidden='true'></i>
                 </span></a></td>
     <td><a class='delPatient' style='color: red;' id='" . $row['idPatient'] . "'><span class='icon'>
@@ -57,8 +57,8 @@ while ($row = $query->fetch()) {
 <nav class="navbar">
     <div class="container">
       <div class="navbar-brand">
-          <a class="navbar-item" href="index.html">
-              <img src="images/logo.png" alt="Logo">
+          <a class="navbar-item" href="/">
+              <img src="/images/logo.png" alt="Logo">
           </a>
           <div class="navbar-item">
               <p>Expace Médecin</p>
@@ -72,7 +72,7 @@ while ($row = $query->fetch()) {
       <div id="navbarMenu" class="navbar-menu">
         <div class="navbar-end">
             <div class="navbar-item">
-                <a class="button is-danger" href="medecin.php">
+                <a class="button is-danger" href="/medecin">
                     Logout
                 </a>
             </div>

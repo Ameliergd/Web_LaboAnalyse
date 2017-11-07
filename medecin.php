@@ -18,7 +18,7 @@ if (!empty($_POST['loginSubmit'])) {
     if (strlen(trim($usernameEmail)) > 1 && strlen(trim($password)) > 1) {
         $res = $userClass->medecinLogin($usernameEmail, $password); // Fonction de vérification des identifiants
         if ($res) {
-            $url = BASE_URL . 'patients.php';
+            $url = BASE_URL . 'patients';
             header("Location: $url"); // Redirection vers la page patients.php
         } else {
             $errorMsgLogin = '<p class="tag is-large is-danger animated bounceIn">Please check login details.</p>';
