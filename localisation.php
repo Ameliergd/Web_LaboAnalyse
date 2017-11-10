@@ -82,7 +82,7 @@
                     <div class="tile">
                         <div class="tile is-parent is-vertical">
                             <div class="tile is-child">
-                                <figure class="image is-4by3">
+                                <figure class="image">
                                     <img src="images/hei.jpg">
                                 </figure>
 
@@ -163,6 +163,34 @@
 
         </div>
     </div>
+    <footer class="footer">
+        <div class="container">
+
+            <div class="columns">
+                <div class="column has-text-link">
+                    <p><b>LABORATOIRE DE BIOLOGIE MÉDICALE</b> </p> <br/>
+                    <ul>
+                        <li> • Centre Biologique HEI</li><br/>
+                        <li>• 13 Rue de Toul <br/> 59000 Lille</li><br/>
+                        <li> • Téléphone <br/>03 28 38 48 58</li>
+
+                    </ul>
+                </div>
+                <div class="column has-text-link">
+                    <p><b>NOTRE ENGAGEMENT</b></p><br/>
+                    <ul>
+                        <li>• Un accueil au Laboratoire sans rendez-vous</li><br/>
+                        <li> • La majorité de vos résultats disponibles dans la journée</li><br/>
+                        <li>• Les résultats urgents disponibles dans l'heure ou sur notre serveur</li><br/>
+                        <li>• La communication de vos résultats anormaux à votre médecin</li>
+
+                    </ul>
+
+
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </body>
 
