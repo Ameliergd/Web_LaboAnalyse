@@ -68,6 +68,49 @@
             </div>
         </div>
     </nav>
+    <div class="hero is-link is-bold">
+        <div class="hero-body container">
+            <h1 class="title">Laboratoire d’Analyses Médicales à Lille – Centre Biologique HEI
+            </h1>
+
+        </div>
+    </div>
+    <div class="section">
+        <div class="container">
+            <div class="tile is-ancestor">
+                <div class="tile is-vertical is-7">
+                    <div class="tile">
+                        <div class="tile is-parent is-vertical">
+                            <div class="tile is-child">
+                                <figure class="image is-256x256">
+                                    <img src="images/hei.jpg">
+                                </figure>
+
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+                    </div>
+
+
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
 </body>
 
 </html>
