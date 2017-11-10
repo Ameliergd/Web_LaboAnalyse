@@ -27,7 +27,7 @@
 
                 <div class="navbar-start">
 
-                    <a class="navbar-item">ACCUEIL</a>
+                    <a class="navbar-item " href="index.html">ACCUEIL</a>
 
                     <div class="navbar-item has-dropdown is-hoverable">
                         <p class="navbar-link is-active">
