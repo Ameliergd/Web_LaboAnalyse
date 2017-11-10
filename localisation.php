@@ -68,7 +68,7 @@
             </div>
         </div>
     </nav>
-    <div class="hero is-link is-bold">
+    <div class="hero is-link is-bold has-text-centered">
         <div class="hero-body container">
             <h1 class="title">Laboratoire d’Analyses Médicales à Lille – Centre Biologique HEI
             </h1>
@@ -78,39 +78,77 @@
     <div class="section">
         <div class="container">
             <div class="tile is-ancestor">
-                <div class="tile is-vertical is-7">
+                <div class="tile is-vertical">
                     <div class="tile">
                         <div class="tile is-parent is-vertical">
                             <div class="tile is-child">
-                                <figure class="image is-256x256">
+                                <figure class="image is-4by3">
                                     <img src="images/hei.jpg">
                                 </figure>
 
-
+                            </div>
+                            <div class="tile is-child message is-link">
+                                <div class="message-header">
+                                    <p>Votre laboratoire de proximité</p>
+                                </div>
+                                <div class="message-body">
+                                    <div class="content">
+                                        <p>•Traitement des urgences</p>
+                                        <p>•Personnel hautement qualifié</p>
+                                        <p>•Des équipements technologiques à la pointe de la performance</p>
+                                        <p>•Des biologistes à votre disposition pour interpréter vos résultats et répondre à vos questions</p>
+                                        <p>•Prise en charge de vos frais médicaux</p>
+                                    </div>
+                                </div>
 
                             </div>
 
 
                         </div>
 
-
-
-
-
                     </div>
-
-
-
-
                 </div>
 
 
+
+
+
+                <div class="tile is-parent is-vertical">
+                    <div class="tile is-child message is-link">
+                        <div class="message-header">
+                            <p> Horaires et Informations</p>
+                        </div>
+                        <div class="message-body">
+                            <div class="content">
+                                <p> Le laboratoire vous accueille</p>
+
+                                <p>•du Lundi au Vendredi de 7h00 à 18h30</p>
+                                <p>•le Samedi de 7h30 à 12h30 </p>
+                                <p>Adresse : 13 Rue de Toul, 59000 Lille.</p>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="tile is-child">
+                            <article class="message is-link">
+                                <div class="message-header">
+                                    <p>Plan d'accès</p>
+                                </div>
+                                <div class="message-body">
+                            <figure class="image is-256x256">
+                                <img src="images/plan.png" />
+                            </figure>
+                                </div>
+                            </article>
+                        
+
+                    </div>
+                </div>
             </div>
 
+
         </div>
-
-
     </div>
+
 </body>
 
 </html>
