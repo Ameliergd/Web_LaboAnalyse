@@ -87,30 +87,32 @@
                                 </figure>
 
                             </div>
-                            <div class="tile is-child message is-link">
-                                <div class="message-header">
-                                    <p>Votre laboratoire de proximité</p>
-                                </div>
-                                <div class="message-body">
-                                    <div class="content">
-                                      <ul>
-                                        <li>
-                                          <p>Traitement des urgences</p>
-                                        </li>
-                                        <li>
-                                          <p>Personnel hautement qualifié</p>
-                                        </li>
-                                        <li>
-                                          <p>Des équipements technologiques à la pointe de la performance</p>
-                                        </li>
-                                        <li>
-                                          <p>Des biologistes à votre disposition pour interpréter vos résultats et répondre à vos questions</p>
-                                        </li>
-                                        <li>
-                                          <p>Prise en charge de vos frais médicaux</p>
-                                        </li>
-                                      </ul>
-                                    </div>
+                            <div class="tile is-child">
+                                <div class="message is-link">
+                                  <div class="message-header">
+                                      <p>Votre laboratoire de proximité</p>
+                                  </div>
+                                  <div class="message-body">
+                                      <div class="content">
+                                        <ul>
+                                          <li>
+                                            <p>Traitement des urgences</p>
+                                          </li>
+                                          <li>
+                                            <p>Personnel hautement qualifié</p>
+                                          </li>
+                                          <li>
+                                            <p>Des équipements technologiques à la pointe de la performance</p>
+                                          </li>
+                                          <li>
+                                            <p>Des biologistes à votre disposition pour interpréter vos résultats et répondre à vos questions</p>
+                                          </li>
+                                          <li>
+                                            <p>Prise en charge de vos frais médicaux</p>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                  </div>
                                 </div>
 
                             </div>
@@ -126,23 +128,25 @@
 
 
                 <div class="tile is-parent is-vertical">
-                    <div class="tile is-child message is-link">
-                        <div class="message-header">
-                            <p> Horaires et Informations</p>
-                        </div>
-                        <div class="message-body">
-                            <div class="content">
-                              <p> Le laboratoire vous accueille</p>
-                              <ul>
-                                <li>
-                                  <p>Du Lundi au Vendredi de 7h00 à 18h30</p>
-                                </li>
-                                <li>
-                                  <p>Le Samedi de 7h30 à 12h30 </p>
-                                </li>
-                              </ul>
-                                <p>Adresse : 13 Rue de Toul, 59000 Lille.</p>
-                            </div>
+                    <div class="tile is-child">
+                        <div class="message is-link">
+                          <div class="message-header">
+                              <p> Horaires et Informations</p>
+                          </div>
+                          <div class="message-body">
+                              <div class="content">
+                                <p> Le laboratoire vous accueille</p>
+                                <ul>
+                                  <li>
+                                    <p>Du Lundi au Vendredi de 7h00 à 18h30</p>
+                                  </li>
+                                  <li>
+                                    <p>Le Samedi de 7h30 à 12h30 </p>
+                                  </li>
+                                </ul>
+                                  <p>Adresse : 13 Rue de Toul, 59000 Lille.</p>
+                              </div>
+                          </div>
                         </div>
                     </div>
                         <div class="tile is-child">
