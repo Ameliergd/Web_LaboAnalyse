@@ -72,7 +72,7 @@ while ($row = $query->fetch()) {
       <div id="navbarMenu" class="navbar-menu">
         <div class="navbar-end">
             <div class="navbar-item">
-                <a class="button is-danger" href="/medecin">
+                <a class="button is-danger" href="medecin.php">
                     Logout
                 </a>
             </div>
