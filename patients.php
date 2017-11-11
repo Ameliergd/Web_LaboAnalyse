@@ -1,10 +1,11 @@
 <?php
 include('include/database.php');
-
-if (!$_SESSION['uid']) {
+include('session.php');
+/*if (!$_SESSION['uid']) {
     header("Location:medecin.php");
     die();
-}
+}*/
+
 
 $output = "";
 
@@ -78,6 +79,7 @@ while ($row = $query->fetch()) {
             </div>
         </div>
     </div>
+  </div>
 </nav>
 <div class="hero is-bold is-info">
     <div class="hero-body">

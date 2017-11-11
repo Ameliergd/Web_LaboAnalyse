@@ -111,12 +111,15 @@ while ($row = $recap->fetch()) {
               </div>
           </div>
       </div>
+    </div>
   </nav>
 
 <div class="hero is-info is-bold">
     <div class="hero-body container">
         <h1 class="title">Fiche patient</h1>
         <h2 class="subtitle"><?php echo($nom); ?></h2>
+        <!--<p>uid: <?php /*echo($_SESSION['uid']); */?></p>
+        <p>pid: <?php /*echo($_SESSION['pid']); */?></p>-->
     </div>
 </div>
 
@@ -223,6 +226,7 @@ while ($row = $recap->fetch()) {
 
 
             </section>
+
             <footer class="modal-card-foot">
                 <input type="submit" class="button is-success" name="addAnalyseForm">
                 <button class="button" onclick="hideModal()">Cancel</button>
@@ -258,12 +262,17 @@ while ($row = $recap->fetch()) {
               </div>
 
             </div>
-            <div class="card-footer">
+            <?php
+            if ($_SESSION['uid']) {
+                echo('<div class="card-footer">
                 <a class="card-footer-item" id="showModal"><span class="icon"><i class="fa fa-pencil"
                                                                                  aria-hidden="true"></i>
 </span>Modifier</a>
                 <a href="#" class="card-footer-item"><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>Supprimer</a>
-            </div>
+            </div>');
+            }
+
+            ?>
         </div>
         <div class="column">
             <table class="table is-hoverable is-striped is-fullwidth is-responsive">

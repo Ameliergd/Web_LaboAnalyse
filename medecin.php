@@ -6,6 +6,7 @@ include('include/database.php');
 include('include/userClass.php');
 
 $_SESSION['uid'] = null;
+$_SESSION['pid'] = null;
 
 $userClass = new userClass();
 
