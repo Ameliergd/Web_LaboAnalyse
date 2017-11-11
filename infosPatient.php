@@ -1,5 +1,6 @@
 <?php
 include('include/database.php');
+include('session.php');
 
 $db = getDB();
 $userId = htmlspecialchars($_GET['id']);

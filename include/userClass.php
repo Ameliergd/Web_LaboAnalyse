@@ -19,6 +19,7 @@ class userClass
             if ($count) {
                 $_SESSION['uid'] = $data->idMedecin; // Stockage de l'id dans une variable de session
                 $_SESSION['nomMedecin'] = $data->nom;
+                $_SESSION['loggedIn'] = true;
                 return true;
             } else {
                 return false;
@@ -43,6 +44,7 @@ class userClass
             if ($count) {
                 $_SESSION['pid'] = $data->idPatient; // Stockage de l'id dans une variable de session
                 $_SESSION['nomPatient'] = $data->nom;
+                $_SESSION['loggedIn'] = true;
                 return true;
             } else {
                 return false;
