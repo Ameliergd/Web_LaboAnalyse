@@ -2,281 +2,282 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Analyse Médicales</title>
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
-  <!-- Animated CSS -->
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-  <!-- Bulma Version 0.6.0 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw=" crossorigin="anonymous" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Analyse Médicales</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <!-- Animated CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <!-- Bulma Version 0.6.0 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw=" crossorigin="anonymous" />
 
-  <link rel="stylesheet" href="css/accueil.css">
-  <style>
-    .bm--card-equal-height {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-  </style>
+    <link rel="stylesheet" href="css/accueil.css">
+    <style>
+        .bm--card-equal-height {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+    </style>
 </head>
 
 <body>
-  <div class="hero is-medium">
-    <div class="hero-head">
-      <nav class="navbar">
-        <div class="container">
-          <div class="navbar-brand">
-            <a class="navbar-item">
+    <div class="hero is-medium">
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item">
                         <img src="images/logo.png" alt="Logo">
                     </a>
-            <a class="navbar-burger" data-target="navbarMenu">
+                        <a class="navbar-burger" data-target="navbarMenu">
                         <span></span>
                         <span></span>
                         <span></span>
                     </a>
-          </div>
+                    </div>
 
 
-          <div id="navbarMenu" class="navbar-menu">
+                    <div id="navbarMenu" class="navbar-menu">
 
-            <div class="navbar-start">
+                        <div class="navbar-start">
 
-              <a class="navbar-item is-active">ACCUEIL</a>
+                            <a class="navbar-item is-active">ACCUEIL</a>
 
-              <div class="navbar-item has-dropdown is-hoverable">
-                <p class="navbar-link">
-                  INFORMATIONS
-                </p>
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <p class="navbar-link">
+                                    INFORMATIONS
+                                </p>
 
-                <div class="navbar-dropdown is-boxed">
-                  <a class="navbar-item" href="localisation.html">
+                                <div class="navbar-dropdown is-boxed">
+                                    <a class="navbar-item" href="localisation.html">
                                         Nous Localiser
                                     </a>
-                  <a class="navbar-item" href="informations.html">
+                                    <a class="navbar-item" href="informations.html">
                                         Info Complementaire
                                     </a>
-                </div>
-              </div>
-            </div>
-            <div class="navbar-end is-grouped is-right">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="navbar-end is-grouped is-right">
 
-              <div class="navbar-item control">
-                <a class="button is-primary" href="connexionPatient.php" target="_blank">
+                            <div class="navbar-item control">
+                                <a class="button is-primary" href="connexionPatient.php" target="_blank">
                                   <span class="icon">
                                       <i class="fa fa-user" aria-hidden="true"></i>
                                   </span>
                                 <span>ESPACE CLIENT</span>
                             </a>
-              </div>
-              <div class="navbar-item control">
-                <a class="button is-info" href="medecin.php" target="_blank">
+                            </div>
+                            <div class="navbar-item control">
+                                <a class="button is-info" href="medecin.php" target="_blank">
                                   <span class="icon">
                                       <i class="fa fa-user-md" aria-hidden="true"></i>
                                   </span>
                                 <span>ESPACE MEDECIN</span>
                             </a>
-              </div>
+                            </div>
 
-            </div>
+                        </div>
 
-          </div>
-        </div>
-      </nav>
+                    </div>
+                </div>
+            </nav>
 
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title has-text-white">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title has-text-white">
                         Laboratoire d'Analyses
                     </h1>
-          <h2 class="subtitle has-text-white">
+                    <h2 class="subtitle has-text-white">
                         Prise de sang et prélèvement sans rendez-vous.<br />Vos résultat en ligne en quelques heures<br />ou au laboratoire dans la journée.
                     </h2>
-          <h2 class="subtitle has-text-white">
+                    <h2 class="subtitle has-text-white">
 
                     </h2>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="notification is-danger">
-    <button class="delete"></button>
-    <p class="has-text-centered">
-      <span class="icon"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span> Ceci est un site factice conçu dans l'optique d'un projet scolaire. Il n'est en aucun cas lié à une utilisation commerciale.
-      <span class="icon"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span>
-    </p>
-  </div>
-  <section class="section">
-    <div class="columns is-gapless animated bounce">
-      <div class="column is-one-third">
-        <div class="card bm--card-equal-height notification is-link">
-          <div class="media">
-            <figure class="media-left">
-              <span class="icon"><i class="fa fa-calendar-o" aria-hidden="true"></i></span>
-            </figure>
-            <div class="media-content">
-              <div class="content">
-                <h2 class="subtitle is-5">Avec ou sans rendez-vous</h2>
-              </div>
+                </div>
             </div>
-          </div>
-          <div class="content">
-            <p>Nous vous accueillons au laboratoire sans rendez-vous et à domicile sur rendez-vous.</p>
-          </div>
         </div>
-      </div>
-      <div class="column is-one-third">
-        <div class="card bm--card-equal-height notification is-info">
-          <div class="media">
-            <figure class="media-left">
-              <span class="icon"><i class="fa fa-hourglass-end" aria-hidden="true"></i></span>
-            </figure>
-            <div class="media-content">
-              <div class="content">
-                <h2 class="subtitle is-5">Résultats rapides</h2>
-              </div>
-            </div>
-          </div>
-          <div class="content">
-            <p>Vos résultats sont prêts pour la plupart dans la journée. Ils sont disponibles au laboratoire, consultables en ligne ou adressés par courrier.</p>
-          </div>
-        </div>
-      </div>
-      <div class="column is-one-third">
-        <div class="card bm--card-equal-height notification is-primary">
-          <div class="media">
-            <figure class="media-left">
-              <span class="icon"><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
-            </figure>
-            <div class="media-content">
-              <div class="content">
-                <h2 class="subtitle is-5">Assurance Qualité</h2>
-              </div>
-            </div>
-          </div>
-          <div class="content">
-            <p>Le laboratoire est engagé dans une démarche qualité qui vous assure la fiabilité des résultats et le respect des règles d’hygiène. Le laboratoire a obtenu la qualification BioQualité.</p>
-          </div>
-        </div>
-      </div>
     </div>
 
 
-
-  </section>
-
-  <section class="section container">
-    <div class="columns">
-      <div class="column is-4">
-        <div class="card">
-          <br />
-          <div class="card-image has-text-centered">
-            <i class="fa fa-paw"></i>
-          </div>
-          <div class="card-content">
-            <div class="content">
-              <h4> L'importance du Depistage </h4>
-              <p>Le dépistage des maladies est un processus complexe et son efficacité dépend de multiples conditions. </p>
-              <p><a href="learnMoreDepistage.html">Learn more</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="column is-4">
-        <div class="card">
-          <br />
-          <div class="card-image has-text-centered">
-            <i class="fa fa-id-card-o"></i>
-          </div>
-          <div class="card-content">
-            <div class="content">
-              <h4>L'importance de la vaccination.</h4>
-              <p>Ut venenatis tellus in metus vulputate. Amet consectetur adipiscing elit pellentesque. Sed arcu non odio euismod lacinia at quis risus. Faucibus turpis in eu mi bibendum neque egestas cmonsu songue. Phasellus vestibulum lorem sed risus.</p>
-              <p><a href="#">Learn more</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="column is-4">
-        <div class="card">
-          <br />
-          <div class="card-image has-text-centered">
-            <i class="fa fa-rocket"></i>
-          </div>
-          <div class="card-content">
-            <div class="content">
-              <h4> Leo integer malesuada nunc vel risus. </h4>
-              <p>Imperdiet dui accumsan sit amet nulla facilisi morbi. Fusce ut placerat orci nulla pellentesque dignissim enim. Libero id faucibus nisl tincidunt eget nullam. Commodo viverra maecenas accumsan lacus vel facilisis.</p>
-              <p><a href="#">Learn more</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="notification is-danger">
+        <button class="delete"></button>
+        <p class="has-text-centered">
+            <span class="icon"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span> Ceci est un site factice conçu dans l'optique d'un projet scolaire. Il n'est en aucun cas lié à une utilisation commerciale.
+            <span class="icon"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span>
+        </p>
     </div>
-
-
-  </section>
-
-
-  <footer class="footer">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-4 ">
-          <div class="card">
-            <div class="card-content">
-              <h3 class="subtitle has-text-link is-5">LABORATOIRE DE BIOLOGIE MÉDICALE</h3>
-              <div class="content has-text-link">
-                <p>
-                  <a href="https://goo.gl/maps/sVwz4inEn5M2" target="_blank">
-                    <adress><span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span> 13 Rue de Toul<br />59000 Lille
-                    </adress>
-                  </a>
-                </p>
-                <p>
-                  <span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span> 03 28 38 48 58
-                </p>
-                <p>
-                  <a href="mailto:labo.toul@mail.com?&subject=Analyse médicale"><span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span> labo.toul@mail.com</a>
-                </p>
-
-              </div>
+    <section class="section">
+        <div class="columns is-gapless animated bounce">
+            <div class="column is-one-third">
+                <div class="card bm--card-equal-height notification is-link">
+                    <div class="media">
+                        <figure class="media-left">
+                            <span class="icon"><i class="fa fa-calendar-o" aria-hidden="true"></i></span>
+                        </figure>
+                        <div class="media-content">
+                            <div class="content">
+                                <h2 class="subtitle is-5">Avec ou sans rendez-vous</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>Nous vous accueillons au laboratoire sans rendez-vous et à domicile sur rendez-vous.</p>
+                    </div>
+                </div>
             </div>
-          </div>
+            <div class="column is-one-third">
+                <div class="card bm--card-equal-height notification is-info">
+                    <div class="media">
+                        <figure class="media-left">
+                            <span class="icon"><i class="fa fa-hourglass-end" aria-hidden="true"></i></span>
+                        </figure>
+                        <div class="media-content">
+                            <div class="content">
+                                <h2 class="subtitle is-5">Résultats rapides</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>Vos résultats sont prêts pour la plupart dans la journée. Ils sont disponibles au laboratoire, consultables en ligne ou adressés par courrier.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-one-third">
+                <div class="card bm--card-equal-height notification is-primary">
+                    <div class="media">
+                        <figure class="media-left">
+                            <span class="icon"><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
+                        </figure>
+                        <div class="media-content">
+                            <div class="content">
+                                <h2 class="subtitle is-5">Assurance Qualité</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>Le laboratoire est engagé dans une démarche qualité qui vous assure la fiabilité des résultats et le respect des règles d’hygiène. Le laboratoire a obtenu la qualification BioQualité.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="column is-offset-one-quarter">
-          <div class="content has-text-link">
-            <h3 class="subtitle has-text-link is-5">NOTRE ENGAGEMENT</h3>
-            <ul>
-              <li>Un accueil au Laboratoire sans rendez-vous</li>
-              <li>La majorité de vos résultats disponibles dans la journée</li>
-              <li>Les résultats urgents disponibles dans l'heure ou sur notre serveur</li>
-              <li>La communication de vos résultats anormaux à votre médecin</li>
-            </ul>
-          </div>
+
+
+
+    </section>
+
+    <section class="section container">
+        <div class="columns">
+            <div class="column is-4">
+                <div class="card">
+                    <br />
+                    <div class="card-image has-text-centered">
+                        <i class="fa fa-newspaper-o"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <h4> L'importance du Depistage </h4>
+                            <p>Le dépistage des maladies est un processus complexe et son efficacité dépend de multiples conditions. </p>
+                            <p><a href="learnMoreDepistage.html">Learn more</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-4">
+                <div class="card">
+                    <br />
+                    <div class="card-image has-text-centered">
+                        <i class="fa fa-newspaper-o"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <h4>Infections urinaire.</h4>
+                            <p>L' infection urinaire est une des infections les plus fréquemment rencontrée au laboratoire.</p>
+                            <p><a href="learnMoreInfection.html">Learn more</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-4">
+                <div class="card">
+                    <br />
+                    <div class="card-image has-text-centered">
+                        <i class="fa fa-newspaper-o"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <h4>IST:Chlamydia trachomatis </h4>
+                            <p>Considérée comme la principale cause d'infection sexuellement transmissible d'origine bactérienne...</p>
+                            <p><a href="learnMoreIST.html">Learn more</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </footer>
-  <!-- Mobile Navburger -->
-  <script src="js/navbarburger.js"></script>
-  <!-- Jquery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <!-- JS -->
-  <script>
-    $(document).ready(function() {
-      $(".delete").click(function() {
-        $(this).parents(".notification").animate({
-          opacity: "hide"
-        }, "slow");
-      })
-    });
-  </script>
+
+
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-4 ">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="subtitle has-text-link is-5">LABORATOIRE DE BIOLOGIE MÉDICALE</h3>
+                            <div class="content has-text-link">
+                                <p>
+                                    <a href="https://goo.gl/maps/sVwz4inEn5M2" target="_blank">
+                                        <adress><span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span> 13 Rue de Toul<br />59000 Lille
+                                        </adress>
+                                    </a>
+                                </p>
+                                <p>
+                                    <span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span> 03 28 38 48 58
+                                </p>
+                                <p>
+                                    <a href="mailto:labo.toul@mail.com?&subject=Analyse médicale"><span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span> labo.toul@mail.com</a>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-offset-one-quarter">
+                    <div class="content has-text-link">
+                        <h3 class="subtitle has-text-link is-5">NOTRE ENGAGEMENT</h3>
+                        <ul>
+                            <li>Un accueil au Laboratoire sans rendez-vous</li>
+                            <li>La majorité de vos résultats disponibles dans la journée</li>
+                            <li>Les résultats urgents disponibles dans l'heure ou sur notre serveur</li>
+                            <li>La communication de vos résultats anormaux à votre médecin</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Mobile Navburger -->
+    <script src="js/navbarburger.js"></script>
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- JS -->
+    <script>
+        $(document).ready(function() {
+            $(".delete").click(function() {
+                $(this).parents(".notification").animate({
+                    opacity: "hide"
+                }, "slow");
+            })
+        });
+
+    </script>
 </body>
 
 </html>

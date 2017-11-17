@@ -67,6 +67,7 @@ if (!empty($_POST['adduserform'])) {
               </div>
           </div>
       </div>
+      </div>
   </nav>
 
 <div class="hero is-success is-bold">
