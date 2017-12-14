@@ -71,20 +71,18 @@ while ($row = $recap->fetch()) {
 function addAnalyse() {
     $userId = htmlspecialchars($_GET['id']);
     $db = getDB(); // Création de la connection à la base de données
-    $query = $db->prepare("INSERT INTO prelevement (idPatient, idMedecin, datePrel,typePrel) VALUES (?, ?, ?, ?)");
-    $query1 = $db->prepare("INSERT INTO analyse (nomAnalyse,resultat,commentaire) VALUES (LAST_INSERT_ID() ,?,?)");
+    $query = $db->prepare("INSERT INTO `prelevement` (idPatient, idMedecin, datePrel,typePrel) VALUES (?, ?, ?, ?);");
+    $query1 = $db->prepare("INSERT INTO `analyse` (idPrelevement, nomAnalyse,resultat,commentaire) VALUES (?, LAST_INSERT_ID() ,?,?)");
 
     if (!empty($_POST['addanalyseform'])) {
         $datPrel = $_POST['date'];
-        $TypePrel = $_POST['prelevement'];
+        $TypePrel = $_POST['typePrel'];
         $nomAnalyse = $_POST['analyse'];
         $resultat = $_POST['resultat'];
         $commentaire = $_POST['commentaire'];
 
         $query->execute(array($userId, $_SESSION['uid'], $datPrel, $TypePrel));
-        $query1->execute(array($resultat, $commentaire));
-
-//    header("Location:infosPatient.php");
+        $query1->execute(array($nomAnalyse, $resultat, $commentaire));
     }
 }
 
@@ -149,7 +147,7 @@ function addAnalyse() {
     </div>
 </div>
 
-<form method="post" action="<?php AddAnalyse(); ?>">
+<form method="post" action="<?php addAnalyse(); ?>">
     <div class="modal">
 
         <div class="modal-background"></div>
@@ -207,7 +205,7 @@ function addAnalyse() {
                                     <div class="field">
                                         <div class="control is-expanded">
                                             <div class="select is-info is-fullwidth">
-                                                <select name="prelevement" required>
+                                                <select name="typePrel" required>
 
                                                     <?php echo(getPrelevements());?>
                                                 </select>
