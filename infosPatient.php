@@ -65,6 +65,29 @@ while ($row = $recap->fetch()) {
   </tr>
   ";
 }
+
+// Ajout d'une nouvelle analyse
+
+function addAnalyse() {
+    $userId = htmlspecialchars($_GET['id']);
+    $db = getDB(); // Création de la connection à la base de données
+    $query = $db->prepare("INSERT INTO prelevement (idPatient, idMedecin, datePrel,typePrel) VALUES (?, ?, ?, ?)");
+    $query1 = $db->prepare("INSERT INTO analyse (nomAnalyse,resultat,commentaire) VALUES (LAST_INSERT_ID() ,?,?)");
+
+    if (!empty($_POST['addanalyseform'])) {
+        $datPrel = $_POST['date'];
+        $TypePrel = $_POST['prelevement'];
+        $nomAnalyse = $_POST['analyse'];
+        $resultat = $_POST['resultat'];
+        $commentaire = $_POST['commentaire'];
+
+        $query->execute(array($userId, $_SESSION['uid'], $datPrel, $TypePrel));
+        $query1->execute(array($resultat, $commentaire));
+
+//    header("Location:infosPatient.php");
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -126,7 +149,7 @@ while ($row = $recap->fetch()) {
     </div>
 </div>
 
-<form method="post" action="">
+<form method="post" action="<?php AddAnalyse(); ?>">
     <div class="modal">
 
         <div class="modal-background"></div>
@@ -186,7 +209,7 @@ while ($row = $recap->fetch()) {
                                             <div class="select is-info is-fullwidth">
                                                 <select name="prelevement" required>
 
-                                                    <?php echo(getPrelevements()); ?>
+                                                    <?php echo(getPrelevements());?>
                                                 </select>
                                             </div>
                                         </div>
