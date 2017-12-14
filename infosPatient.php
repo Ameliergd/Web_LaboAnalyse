@@ -1,10 +1,16 @@
 <?php
+ini_set('display_errors', 'on');
+error_reporting(E_ALL);
 include('include/database.php');
 include('session.php');
 
 $db = getDB();
 $userId = htmlspecialchars($_GET['id']);
 
+if(isset($_POST['addanalyseform']))
+{
+   addAnalyse();
+}
 
 function getPrelevements()
 {
@@ -72,7 +78,7 @@ function addAnalyse() {
     $userId = htmlspecialchars($_GET['id']);
     $db = getDB(); // Création de la connection à la base de données
     $query = $db->prepare("INSERT INTO `prelevement` (idPatient, idMedecin, datePrel,typePrel) VALUES (?, ?, ?, ?);");
-    $query1 = $db->prepare("INSERT INTO `analyse` (idPrelevement, nomAnalyse,resultat,commentaire) VALUES (?, LAST_INSERT_ID() ,?,?)");
+    $query1 = $db->prepare("INSERT INTO `analyse` (idPrelevement, nomAnalyse,resultat,commentaire) VALUES (LAST_INSERT_ID(), ? ,?,?)");
 
     if (!empty($_POST['addanalyseform'])) {
         $datPrel = $_POST['date'];
@@ -146,7 +152,7 @@ function addAnalyse() {
             </div>
         </div>
 
-        <form method="post" action="<?php addAnalyse(); ?>">
+        <form method="post" action="">
             <div class="modal">
 
                 <div class="modal-background"></div>
@@ -223,7 +229,7 @@ function addAnalyse() {
                                         <div class="field-body">
                                             <div class="field">
                                                 <p class="control is-expanded">
-                                                    <input class="input is-info" type="text" placeholder="OK" name="resulat" required>
+                                                    <input class="input is-info" type="text" placeholder="OK" name="resultat" required>
                                                 </p>
                                             </div>
                                         </div>
