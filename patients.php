@@ -27,7 +27,7 @@ while ($row = $query->fetch()) {
                 <i class='fa fa-info-circle' aria-hidden='true'></i>
                 </span></a></td>
     <td><a class='delPatient' style='color: red;' id='" . $row['idPatient'] . "'><span class='icon'>
-                <i class='fa fa-trash' aria-hidden='true'></i></i>
+                <i class='fa fa-trash' aria-hidden='true'></i>
                 </span></a></td>
   </tr>";
 }
