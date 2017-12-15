@@ -133,12 +133,12 @@ if (!empty($_POST['adduserform'])) {
                 <div class="field is-narrow">
                   <div class="control">
                     <label class="radio">
-                                    <input type="radio" name="sexe" value="M">
+                                    <input type="radio" name="sexe" value="F">
                                     <span class="icon" style="color: pink;"><i class="fa fa-venus fa-lg" aria-hidden="true"></i>
                                     </span>
                                 </label>
                     <label class="radio">
-                                    <input type="radio" name="sexe" value="F">
+                                    <input type="radio" name="sexe" value="M">
                                     <span class="icon" style="color: cyan;"><i class="fa fa-mars fa-lg" aria-hidden="true"></i>
 </span>
                                 </label>
