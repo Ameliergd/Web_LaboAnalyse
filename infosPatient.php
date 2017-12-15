@@ -56,11 +56,11 @@ while ($row = $recap->fetch()) {
       <td>" . $row['resultat'] . "</td>
       <td><div class='dropdown is-hoverable is-right'>
   <div class='dropdown-trigger'>
-    <span class='icon' aria-haspopup='true' aria-controls='dropdown-menu4'>
+    <span class='icon' aria-haspopup='true'>
       <i class='fa fa-info-circle' aria-hidden='true'></i>
-    </p>
+    </span>
   </div>
-  <div class='dropdown-menu' id='dropdown-menu2' role='menu'>
+  <div class='dropdown-menu' role='menu'>
     <div class='dropdown-content'>
       <div class='dropdown-item'>
         <p>" . $row['commentaire'] . "</p>
@@ -152,7 +152,7 @@ function addAnalyse() {
             </div>
         </div>
 
-        <form method="post" action="">
+        <form method="post">
             <div class="modal">
 
                 <div class="modal-background"></div>
@@ -209,7 +209,7 @@ function addAnalyse() {
                                             <div class="field">
                                                 <div class="control is-expanded">
                                                     <div class="select is-info is-fullwidth">
-                                                        <select name="typePrel" required>
+                                                        <select name="typePrel" required><option value="">-------</option>
 
                                                     <?php echo(getPrelevements());?>
                                                 </select>
