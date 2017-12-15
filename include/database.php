@@ -34,7 +34,7 @@ function GenderSymbol($gender)
   }
   else
   {
-    $output = '<span class="icon" style="color:#ef5fe8;"><i class="fa fa-venus" aria-hidden="true"></i><span>';
+    $output = '<span class="icon" style="color:#ef5fe8;"><i class="fa fa-venus" aria-hidden="true"></i></span>';
   }
   return $output;
 }
